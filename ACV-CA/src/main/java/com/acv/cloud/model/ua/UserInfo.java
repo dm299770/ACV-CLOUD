@@ -1,4 +1,4 @@
-package com.xxx.demo.dto.sys;
+package com.acv.cloud.model.ua;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -80,6 +80,11 @@ public class TsUserServiceImpl implements TsUserService {
     }
 
     @Override
+    public UserInfo findEffctiveUserInfoById(String uuid){
+        return tsUserMapper.findEffctiveUserInfoById(uuid);
+    }
+
+    @Override
     public TsUser findEffctiveByPhoneNum(String phoneNum) {
         return tsUserMapper.findEffctiveByPhoneNum(phoneNum);
     }

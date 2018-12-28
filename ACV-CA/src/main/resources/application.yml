@@ -9,13 +9,38 @@ eureka:
 spring:
   application:
     name: ACV-CA
-
-zuul:
-  routes:
-    users:
-      path: /ACV-UA/**
-      serviceId: ACV-UA
-
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
+zuul:
+  routes:
+      #面向服务方式路由
+    ACV-UA: /ACV-UA/**
+
+      #customSensitiveHeaders: true
+      #sensitiveHeaders:
+
+      #path:
+      #serviceId:
+      #传统url方式路由
+    ACV-VA: /ACV-VA/**
+
+    api-a-url:
+      path: /api-a-url
+      url: http://localhost:8080/
+  AccessFilter:
+    pre:
+      disable: false
+
+  #retryable: false
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutIntMilliseconds: 120000
+
+

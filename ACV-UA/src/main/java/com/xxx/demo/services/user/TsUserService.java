@@ -30,6 +30,13 @@ public interface TsUserService {
      * @return
      */
     UserInfo findEffctiveUserInfoByPhoneNum(String phoneNum);
+    /**
+     * 根据用户主键查找用户
+     *
+     * @param uuid 用户主键
+     * @return
+     */
+    UserInfo findEffctiveUserInfoById(String uuid);
 
     /**
      * 根据用户电话号查找用户

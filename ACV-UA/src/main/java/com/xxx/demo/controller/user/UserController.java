@@ -72,6 +72,19 @@ public class UserController {
         return jsonObject;
     }
 
+    @RequestMapping(value = "/{id}")
+    @ResponseBody
+    public UserInfo getUser(@PathVariable("id")String uuid) {
+        UserInfo userInfo = null ;
+        try {
+             userInfo = tsUserServices.findEffctiveUserInfoById(uuid);
+        } catch (Exception e) {
+            logger.error("getUser: " + e);
+            e.printStackTrace();
+        }
+        return userInfo;
+    }
+
 
     /**
      * 注册用户

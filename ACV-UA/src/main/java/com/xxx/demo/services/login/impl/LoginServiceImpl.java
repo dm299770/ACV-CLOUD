@@ -69,7 +69,7 @@ public class LoginServiceImpl implements LoginService {
                     //获取过期时间
                     params.put("EXPIREIN", accessToken_expireIn);
                     params.put("SCOPE", null);
-                    params.put("APP_ACCOUNT_ID", phoneNum);
+                    params.put("APP_ACCOUNT_ID", tsUser.getUserId());
                     //生成access Token
                     String accessToken = JwtTokenUtil.generateToken(params);
 

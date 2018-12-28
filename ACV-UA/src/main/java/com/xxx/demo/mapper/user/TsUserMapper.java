@@ -78,4 +78,13 @@ public interface TsUserMapper {
      * @return
      */
     UserInfo findEffctiveUserInfoByPhoneNum(@Param("phoneNum") String phoneNum);
+
+    /**
+     * 根据用户主键查找用户全部信息
+     *
+     * @param id 用户电话号
+     * @return
+     */
+    UserInfo findEffctiveUserInfoById(@Param("id") String id);
+
 }

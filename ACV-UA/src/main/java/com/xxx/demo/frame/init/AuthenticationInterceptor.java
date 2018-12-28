@@ -55,22 +55,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if (methodAnnotation != null) {
             // 判断是否存在令牌信息，如果存在，则允许登录
             //String accessToken = request.getParameter(ACCESS_TOKEN);
-            String accessToken = request.getHeader(ACCESS_TOKEN);
-            if (null == accessToken) {
-                //throw new RuntimeException("无token，请重新登录");
-                throw new LoginRequiredException("无token，请重新登录");
-            }
-            if (!JwtTokenUtil.checkAccessToken(accessToken)) {
-                //Claims claims = TokenUtils.parseJWT(accessToken);
-                Map<String, Object> map = JwtTokenUtil.analysisToken(accessToken, 1);
-                String phoneNum = map.get("id").toString();
-                UserInfo user = tsUserService.findEffctiveUserInfoByPhoneNum(phoneNum);
-                if (user == null) {
-                    //throw new RuntimeException("用户不存在，请重新登录");
-                    throw new LoginRequiredException("用户不存在，请重新登录");
-                }
-                // 当前登录用户@CurrentUser
-                request.setAttribute(CurrentUserConstants.CURRENT_USER, user);
+            UserInfo user =  (UserInfo)request.getAttribute(CurrentUserConstants.CURRENT_USER);
+            if (user == null) {
+                //throw new RuntimeException("用户不存在，请重新登录");
+                throw new LoginRequiredException("用户不存在，请重新登录");
             }
             return true;
         } else {

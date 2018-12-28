@@ -67,6 +67,14 @@
         where tu.PHONE_NUM = #{phoneNum} and tu.IS_EFFCTIVE = 1
     </select>
 
+    <select id="findEffctiveUserInfoById" resultMap="UserInfoResultMap">
+        select
+        <include refid="UserInfoColumns"/>
+        from TS_USER tu left JOIN TS_USER_INFO tui
+        on tu.USER_ID = tui.USER_ID
+        where tu.USER_ID = #{id} and tu.IS_EFFCTIVE = 1
+    </select>
+
     <insert id="save" parameterType="TsUser">
         insert into
         <include refid="tableName"/>
