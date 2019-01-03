@@ -9,6 +9,12 @@ eureka:
 spring:
   application:
     name: ACV-CA
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
@@ -24,6 +30,7 @@ zuul:
       #serviceId:
       #传统url方式路由
     ACV-VA: /ACV-VA/**
+    ACV-NA: /ACV-NA/**
 
     api-a-url:
       path: /api-a-url
@@ -43,4 +50,13 @@ hystrix:
           thread:
             timeoutIntMilliseconds: 120000
 
+jwt:
+  SECRET_BAIDU: qweRTYuioasdFGHjklzxcVBNmradio
+  SECRET_HU: qweRTYuioasdFGHjklzxcVBNmhu
+  SECRET_AUTO: qweRTYuioasdFGHjklzxcVBNmauto
+  SECRET_JD: qweRTYuioasdFGHjklzxcVBNmjd
+  CODE_EXPIREIN: 300
+  REFRESH_TOKEN_EXPIREIN: 2592000
+  ACCESS_TOKEN_EXPIREIN: 7200
+  AUTHORITY_LIST: scp01001 scp01002 scp01003 scp02001 read
 

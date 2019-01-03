@@ -36,83 +36,91 @@ public class OauthConstants {
 
 
     //CHRTSP01秘钥
-//
-//    public static String secret_baidu;
-//    //CHRTSP02秘钥
-//
-//    public static String secret_hu;
-//    //CHRTSP03秘钥
-//
-//    public static String secret_auto;
-//    //CHRTSP04秘钥
-//
-//    public static String secret_jd;
-//    //授权码过期时间
-//
-//    public static int code_expirein;
-//    //refresh_token过期时间
-//
-//    public static Long refresh_token_expirein;
-//    //access_token过期时间
-//
-//    public static Long access_token_expirein;
-//    //权限_连接
-//
-//    //public static String AUTHORITY_LIST;
-//
-//    public static String getSecret_baidu() {
-//        return secret_baidu;
-//    }
-//
-//    public static void setSecret_baidu(String secret_baidu) {
-//        OauthConstants.secret_baidu = secret_baidu;
-//    }
-//
-//    public static String getSecret_hu() {
-//        return secret_hu;
-//    }
-//
-//    public static void setSecret_hu(String secret_hu) {
-//        OauthConstants.secret_hu = secret_hu;
-//    }
-//
-//    public static String getSecret_auto() {
-//        return secret_auto;
-//    }
-//
-//    public static void setSecret_auto(String secret_auto) {
-//        OauthConstants.secret_auto = secret_auto;
-//    }
-//
-//    public static String getSecret_jd() {
-//        return secret_jd;
-//    }
-//
-//    public static void setSecret_jd(String secret_jd) {
-//        OauthConstants.secret_jd = secret_jd;
-//    }
-//
-//    public static int getCode_expirein() {
-//        return code_expirein;
-//    }
-//
-//    public static void setCode_expirein(int code_expirein) {
-//        OauthConstants.code_expirein = code_expirein;
-//    }
-//
-//    public static Long getRefresh_token_expirein() {
-//        return refresh_token_expirein;
-//    }
-//
-//    public static void setRefresh_token_expirein(Long refresh_token_expirein) {
-//        OauthConstants.refresh_token_expirein = refresh_token_expirein;
-//    }
-//
-//    public static Long getAccess_token_expirein() {
-//        return access_token_expirein;
-//    }
-//
-//    public static void setAccess_token_expirein(Long access_token_expirein) {
-//        OauthConstants.access_token_expirein = access_token_expirein;
-//    }
+
+    public static String SECRET_BAIDU;
+    //CHRTSP02秘钥
+
+    public static String SECRET_HU;
+    //CHRTSP03秘钥
+
+    public static String SECRET_AUTO;
+    //CHRTSP04秘钥
+
+    public static String SECRET_JD;
+    //授权码过期时间
+
+    public static int CODE_EXPIREIN;
+    //refresh_token过期时间
+
+    public static Long REFRESH_TOKEN_EXPIREIN;
+    //access_token过期时间
+
+    public static Long ACCESS_TOKEN_EXPIREIN;
+    //权限_连接
+
+    public static String AUTHORITY_LIST;
+
+    public static String getSecretBaidu() {
+        return SECRET_BAIDU;
+    }
+
+    public static void setSecretBaidu(String secretBaidu) {
+        SECRET_BAIDU = secretBaidu;
+    }
+
+    public static String getSecretHu() {
+        return SECRET_HU;
+    }
+
+    public static void setSecretHu(String secretHu) {
+        SECRET_HU = secretHu;
+    }
+
+    public static String getSecretAuto() {
+        return SECRET_AUTO;
+    }
+
+    public static void setSecretAuto(String secretAuto) {
+        SECRET_AUTO = secretAuto;
+    }
+
+    public static String getSecretJd() {
+        return SECRET_JD;
+    }
+
+    public static void setSecretJd(String secretJd) {
+        SECRET_JD = secretJd;
+    }
+
+    public static int getCodeExpirein() {
+        return CODE_EXPIREIN;
+    }
+
+    public static void setCodeExpirein(int codeExpirein) {
+        CODE_EXPIREIN = codeExpirein;
+    }
+
+    public static Long getRefreshTokenExpirein() {
+        return REFRESH_TOKEN_EXPIREIN;
+    }
+
+    public static void setRefreshTokenExpirein(Long refreshTokenExpirein) {
+        REFRESH_TOKEN_EXPIREIN = refreshTokenExpirein;
+    }
+
+    public static Long getAccessTokenExpirein() {
+        return ACCESS_TOKEN_EXPIREIN;
+    }
+
+    public static void setAccessTokenExpirein(Long accessTokenExpirein) {
+        ACCESS_TOKEN_EXPIREIN = accessTokenExpirein;
+    }
+
+    public static String getAuthorityList() {
+        return AUTHORITY_LIST;
+    }
+
+    public static void setAuthorityList(String authorityList) {
+        AUTHORITY_LIST = authorityList;
+    }
 }

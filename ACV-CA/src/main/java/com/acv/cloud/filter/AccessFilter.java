@@ -4,16 +4,26 @@ import com.acv.cloud.constants.ua.CurrentUserConstants;
 import com.acv.cloud.feign.ua.ITsUserServiceFeign;
 import com.acv.cloud.model.ua.UserInfo;
 //import com.acv.cloud.util.JwtTokenUtil;
+import com.acv.cloud.util.JwtTokenUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import com.netflix.zuul.http.ServletInputStreamWrapper;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StreamUtils;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Map;
 @Component
 public class AccessFilter extends ZuulFilter
@@ -21,8 +31,8 @@ public class AccessFilter extends ZuulFilter
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private static final String accessToken = "accessToken";
 
-    //@Autowired
-    //private ITsUserServiceFeign iTsUserServiceFeign;
+    @Autowired
+    private ITsUserServiceFeign iTsUserServiceFeign;
 
 
     /**
@@ -53,7 +63,10 @@ public class AccessFilter extends ZuulFilter
      */
     @Override
     public boolean shouldFilter() {
-        return true;
+        RequestContext ctx = RequestContext.getCurrentContext();
+        String url = ctx.getRequest().getRequestURL().toString();
+        //判断当前请求是否验证登录
+       return needCertification(url);
     }
     /**
      * 过滤器执行具体内容
@@ -65,33 +78,74 @@ public class AccessFilter extends ZuulFilter
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        //logger.info("--->> route get all params :"+request.getParameterMap().toString());
         logger.info("--->>send {} request to {}",request.getMethod(),request.getRequestURL().toString());
-        //Object header = request.getHeader(accessToken);
-        //UserInfo userInfo = iTsUserServiceFeign.getUser("3431b8b5-85df-4024-a3d4-a83af1b1aa27");
-        //System.out.println(userInfo.getPhoneNum());
-        //        if(header==null){
-//            logger.warn("access token is empty");
-//            ctx.setSendZuulResponse(false);
-//            ctx.setResponseStatusCode(401);
-//            return null;
-//        }
-//
-//        if(header!=null){
-//            if (!JwtTokenUtil.checkAccessToken(accessToken)) {
-//                //Claims claims = TokenUtils.parseJWT(accessToken);
-//                Map<String, Object> map = JwtTokenUtil.analysisToken(accessToken, 1);
-//                String uuid = map.get("id").toString();
-//                UserInfo userInfo = null ;
-//                if (!StringUtils.isEmpty(uuid)) {
-//                    //userInfo = iTsUserServiceFeign.getUser(uuid);
-//                }
-//                // 当前登录用户@CurrentUser
-//                request.setAttribute(CurrentUserConstants.CURRENT_USER, userInfo);
-//            }
-//        }
+        Object header = request.getHeader(accessToken);
 
-        logger.info("access token ok");
+
+        if(header!=null){
+            logger.info("--->>token: {}",header.toString());
+            if (!JwtTokenUtil.checkAccessToken(header.toString())) {
+                //Claims claims = TokenUtils.parseJWT(accessToken);
+                Map<String, Object> map = JwtTokenUtil.analysisToken(header.toString(), 1);
+                String uuid = map.get("id").toString();
+                UserInfo userInfo = null;
+                if (!StringUtils.isEmpty(uuid)) {
+                     userInfo = iTsUserServiceFeign.getUser(uuid);
+                }
+                if(userInfo!=null){
+                    // 当前登录用户@CurrentUser
+                    request.setAttribute(CurrentUserConstants.CURRENT_USER, userInfo);
+                    logger.info("CurrentUser is logining userid :{}",uuid);
+                    //另外在request中虽然可以setAttribute（），但是可能由于作用域（request）的不同，一台服务器才能getAttribute（）出来，
+                    //在这里设置的Attribute在后续的微服务中是获取不到的，因此必须考虑另外的方式：get方法和其他方法处理方式不同，post和put
+                    //需重写HttpServletRequestWrapper，即获取请求的输入流，重写json参数，传入重写构造上下文中的request中。
+
+                    try {
+                        InputStream in = ctx.getRequest().getInputStream();
+                        String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
+                        if(StringUtils.isBlank(body)){
+                            body = "{}";
+                        }
+                        JSONObject jsonObject = JSON.parseObject(body);
+                        jsonObject.put(CurrentUserConstants.CURRENT_USER, userInfo);
+                        String newBody = jsonObject.toString();
+                        final byte[] reqBodyBytes = newBody.getBytes();
+                        ctx.setRequest(new HttpServletRequestWrapper(request){
+                            @Override
+                            public ServletInputStream getInputStream() throws IOException {
+                                return new ServletInputStreamWrapper(reqBodyBytes);
+                            }
+                            @Override
+                            public int getContentLength() {
+                                return reqBodyBytes.length;
+                            }
+                            @Override
+                            public long getContentLengthLong() {
+                                return reqBodyBytes.length;
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        }else{
+            logger.warn("token is empty");
+        }
         return null;
+    }
+    /**
+     * @param url 请求url
+     * */
+    private Boolean needCertification(String url){
+        Boolean falg = true;
+
+        if(url.contains("/login/login/")||url.contains("/user/registeredUser")){
+            falg = false;
+        }
+
+        return falg;
     }
 }

@@ -1,6 +1,8 @@
 package com.xxx.demo.frame.init;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xxx.demo.dto.sys.UserInfo;
 import com.xxx.demo.exception.LoginRequiredException;
 import com.xxx.demo.frame.annotation.LoginRequired;
@@ -12,14 +14,19 @@ import com.xxx.demo.models.sys.TsUser;
 import com.xxx.demo.services.user.SysUserService;
 import com.xxx.demo.services.user.TsUserService;
 import io.jsonwebtoken.Claims;
+import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 /**
@@ -55,11 +62,26 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if (methodAnnotation != null) {
             // 判断是否存在令牌信息，如果存在，则允许登录
             //String accessToken = request.getParameter(ACCESS_TOKEN);
-            UserInfo user =  (UserInfo)request.getAttribute(CurrentUserConstants.CURRENT_USER);
+            //UserInfo user =  (UserInfo)request.getAttribute(CurrentUserConstants.CURRENT_USER);
+            UserInfo user = null ;
+            try {
+                InputStream in = request.getInputStream();
+                String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
+                if(StringUtils.isNotBlank(body)){
+                    JSONObject jsonObject = JSON.parseObject(body);
+                    user =  JSON.parseObject(jsonObject.getJSONObject(CurrentUserConstants.CURRENT_USER).toJSONString(),UserInfo.class);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             if (user == null) {
                 //throw new RuntimeException("用户不存在，请重新登录");
                 throw new LoginRequiredException("用户不存在，请重新登录");
             }
+            // 当前登录用户@CurrentUser
+            request.setAttribute(CurrentUserConstants.CURRENT_USER, user);
             return true;
         } else {
             return true;
