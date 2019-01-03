@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb303a1c-ab38-4f0c-acfd-aa275cbe062b" name="Default Changelist" comment="AcvCaApplication.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-UA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-UA/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="eb303a1c-ab38-4f0c-acfd-aa275cbe062b" name="Default Changelist" comment="AcvCaApplication.java" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -443,7 +440,7 @@
       <option name="presentableId" value="Default" />
       <updated>1545815545655</updated>
       <workItem from="1545815551525" duration="32923000" />
-      <workItem from="1546392563510" duration="23632000" />
+      <workItem from="1546392563510" duration="23893000" />
     </task>
     <task id="LOCAL-00001" summary="AcvCaApplication.java">
       <created>1546498087841</created>
@@ -456,7 +453,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56555000" />
+    <option name="totallyTimeSpent" value="56816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1926" y="0" width="1361" height="1044" extended-state="0" />

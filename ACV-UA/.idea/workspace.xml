@@ -10,10 +10,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/user/UserController.java" description="logger.info(&quot;registeredUser:phoneNum:&quot; + phoneNum ..." line="96" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e134f52-6506-4113-a259-b7776b2931a2" name="Default Changelist" comment="update login feature (logining add deviceNo)">
-      <change beforePath="$PROJECT_DIR$/../ACV-CA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7e134f52-6506-4113-a259-b7776b2931a2" name="Default Changelist" comment="update login feature (logining add deviceNo)" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
