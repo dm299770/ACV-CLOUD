@@ -3,10 +3,10 @@ ACV-CLOUD是ACV CHINA基于`Spring
 Cloud`微`服务`化`车控平台`，具有认证授权、车控管理,消息推送等模块，其中包含具备网关API
 管理等多个模块，支持多业务系统并行。代码简洁，架构清晰。
 核心技术采用`Spring Boot 
-2.0.1`以及`Spring Cloud (Finchley.RELEASE)
+2.1.1`以及`Spring Cloud (Finchley.RELEASE)
 `相关核心组件，采用`Consul注册中心`，前端采用`-`组件。 
 
-### 连接：[点击打开](https://gitee.com/minull/ace-security/issues/II9SP)
+### 连接：[点击打开](https://github.com/dm299770/ACV-CLOUD)
 
 # 图片
 ![image.png](http://upload-images.jianshu.io/upload_images/5700335-8d69f4e885a4ec85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

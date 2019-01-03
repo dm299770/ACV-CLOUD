@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb303a1c-ab38-4f0c-acfd-aa275cbe062b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/acv/cloud/util/JwtTokenUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acv/cloud/constants/ua/OauthConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acv/cloud/constants/ua/OauthConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/acv/cloud/filter/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acv/cloud/filter/AccessFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACV-UA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-UA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-UA/src/main/java/com/xxx/demo/frame/init/AuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-UA/src/main/java/com/xxx/demo/frame/init/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -415,7 +409,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546481598119" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546482102035" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ACV-UA" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -460,15 +454,16 @@
       <option name="presentableId" value="Default" />
       <updated>1545815545655</updated>
       <workItem from="1545815551525" duration="32923000" />
-      <workItem from="1546392563510" duration="20509000" />
+      <workItem from="1546392563510" duration="20745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53432000" />
+    <option name="totallyTimeSpent" value="53668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3206" y="0" width="1279" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31665298" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

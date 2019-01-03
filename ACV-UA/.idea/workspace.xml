@@ -11,15 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e134f52-6506-4113-a259-b7776b2931a2" name="Default Changelist" comment="update login feature (logining add deviceNo)">
-      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACV-CA/src/main/java/com/acv/cloud/util/JwtTokenUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACV-CA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-CA/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-CA/src/main/java/com/acv/cloud/constants/ua/OauthConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/src/main/java/com/acv/cloud/constants/ua/OauthConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-CA/src/main/java/com/acv/cloud/filter/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/src/main/java/com/acv/cloud/filter/AccessFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACV-CA/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-CA/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/AuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -309,8 +302,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/login/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="247">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -981,7 +974,7 @@
       <workItem from="1545371824996" duration="12795000" />
       <workItem from="1545722322044" duration="3900000" />
       <workItem from="1545790701808" duration="28267000" />
-      <workItem from="1546393747763" duration="14612000" />
+      <workItem from="1546393747763" duration="15099000" />
     </task>
     <task id="LOCAL-00001" summary="1.0 version">
       <created>1539054969703</created>
@@ -1075,7 +1068,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="490237000" />
+    <option name="totallyTimeSpent" value="490724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1088,6 +1081,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3205" y="0" width="1299" height="1048" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47368422" visible="true" weight="0.37046006" />
       <window_info id="Image Layers" order="1" />
@@ -1560,8 +1554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/login/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="247">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>
