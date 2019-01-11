@@ -16,9 +16,12 @@
         <h3 class="text-muted">OAuth2 Server</h3>
     </div>
 
+
     <div class="row marketing">
+        <input type="text" value="${base}" />
+        <input type="text" value="${request.contextPath}" />
         <div class="col-lg-10">
-            <form class="form-horizontal" method="post" action="${base}/accessToken">
+            <form class="form-horizontal" method="post" action="/ACV-UA/accessToken">
                 <div class="form-group">
                     <label for="client_id" class="col-sm-4 control-label">应用id</label>
                     <div class="col-sm-8">

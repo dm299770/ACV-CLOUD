@@ -46,17 +46,17 @@ public class TokenController {
     @RequestMapping("/access")
     public ModelAndView access(Model model, HttpServletRequest request) {
         //map.put("location","http://"+request.getContextPath()+":"+request.getServerPort()+"/");
-        return new ModelAndView("accesstoken");
+        ModelAndView modelAndView = new ModelAndView("accesstoken");
+        String url = request.getRequestURL().toString();
+        String uri = request.getRequestURI();
+        modelAndView.addObject("requestModel",request);
+        return modelAndView;
     }
 
     @RequestMapping("/accessToken")
     public Object token(HttpServletRequest request) throws URISyntaxException, OAuthSystemException {
 
         try {
-
-            //构建OAuth请求
-            OAuthTokenRequest oauthRequest = new OAuthTokenRequest(request);
-
             logger.info("时间戳：{}---<{}>OAuthTokenRequest：{}，授权密码{},grant_type:{},redirect_uri:{}",
                     request.getParameter("st"),
                     request.getParameter("client_id"),
@@ -64,6 +64,11 @@ public class TokenController {
                     request.getParameter("client_secret"),
                     request.getParameter("grant_type"),
                     request.getParameter("redirect_uri"));
+
+            //构建OAuth请求
+            OAuthTokenRequest oauthRequest = new OAuthTokenRequest(request);
+
+
 
             //权限范围
             String scope = null;

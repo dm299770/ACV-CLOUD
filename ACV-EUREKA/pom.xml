@@ -3,27 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.acv.cloud</groupId>
+        <artifactId>ACV-CLOUD</artifactId>
+        <version>2.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
-    <groupId>com.acv.tsp</groupId>
-    <artifactId>eureka-acv</artifactId>
+
+    <groupId>com.acv.cloud</groupId>
+    <artifactId>ACV-EUREKA</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-acv</name>
+    <name>ACV-EUREKA</name>
     <description>ACV EUREKA</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.RC1</spring-cloud.version>
+        <!--<spring-cloud.version>Greenwich.RC2</spring-cloud.version>-->
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-web</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -39,11 +40,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- eureka启动之后，可以通过链接直接访问到eureka。所以需要添加security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,18 +52,6 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
