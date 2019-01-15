@@ -4,6 +4,7 @@ import com.xxx.demo.repository.redistemplate.INotificationDao;
 import com.xxx.demo.repository.redistemplate.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -15,8 +16,8 @@ public class NotificationDaoImpl implements INotificationDao {
     private RedisRepository redisRepository;
 
     @Override
-    public String getDeviceToken(String tokenList ) {
-        String token= String.valueOf(redisRepository.get(tokenList));
+    public String getDeviceToken(String phoneNums) {
+        String token = String.valueOf(redisRepository.get(phoneNums));
         return token;
     }
 }

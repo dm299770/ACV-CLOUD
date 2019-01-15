@@ -7,5 +7,5 @@ package com.xxx.demo.repository.redistemplate;
  */
 public interface INotificationDao {
 
-   String getDeviceToken(String tokenList);
+   String getDeviceToken(String phoneNums);
 }

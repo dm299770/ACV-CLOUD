@@ -78,8 +78,8 @@ public interface TsUserMapper {
     /**
      * 根据用户手机号查询用户userId
      *
-     * @param phoneNum
+     * @param phoneNums
      * @return
      */
-    TsUser findUserId(@Param("phoneNum") String tokenList);
+    TsUser findUserId(@Param("phoneNum") String phoneNums);
 }
