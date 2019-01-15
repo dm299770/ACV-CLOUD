@@ -1,4 +1,5 @@
 import com.xxx.demo.Application;
+import com.xxx.demo.models.vehicle.TrUserVin;
 import com.xxx.demo.repository.redistemplate.RedisRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.Date;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
@@ -18,7 +21,12 @@ public class RedisTest {
 
     @Test
     public void test() {
-
-        redisRepository.set("testIntent1111", "test");
+        TrUserVin vin = new TrUserVin();
+        vin.setIsEffctive(0);
+        vin.setCreateDate(new Date());
+        vin.setUserId("1234567890");
+        //redisRepository.set("testIntent1111", vin);
+        Object o = redisRepository.get("testIntent1111");
+        System.out.println("111111"+o);
     }
 }

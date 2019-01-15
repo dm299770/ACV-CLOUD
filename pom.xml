@@ -30,6 +30,7 @@
         <module>ACV-EUREKA</module>
         <module>ACV-UA</module>
         <module>ACV-NA</module>
+        <module>ACV-VA</module>
     </modules>
 
     <packaging>pom</packaging>

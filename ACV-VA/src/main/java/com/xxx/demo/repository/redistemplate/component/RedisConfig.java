@@ -1,7 +1,6 @@
 package com.xxx.demo.repository.redistemplate.component;
 
 import com.alibaba.fastjson.parser.ParserConfig;
-import com.xxx.demo.frame.util.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
@@ -27,7 +26,7 @@ import java.time.Duration;
 @Configuration
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
-public class RedisConfig extends CachingConfigurerSupport {
+public class RedisConfig  {
 
     @Bean
     @Primary//当有多个管理器的时候，必须使用该注解在一个管理器上注释：表示该管理器为默认的管理器
@@ -56,7 +55,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         如果序列化信息中的类路径不在autoType中，
         反解析就会报com.alibaba.fastjson.JSONException: autoType is not support的异常
          */
-        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+        //ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
         ParserConfig.getGlobalInstance().addAccept(" com.xxx.demo.models.");
         return cacheManager;
     }
@@ -69,7 +68,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
         //使用fastjson序列化
         //FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
-        com.xxx.demo.frame.util.FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Override.class);
+        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Override.class);
         // value值的序列化采用fastJsonRedisSerializer
         template.setValueSerializer(fastJsonRedisSerializer);
         template.setHashValueSerializer(fastJsonRedisSerializer);

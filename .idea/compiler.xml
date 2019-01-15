@@ -6,26 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="acv-ca" />
+        <module name="ACV-CA" />
         <module name="ACV-EUREKA" />
         <module name="ACV-NA" />
         <module name="ACV-UA" />
+        <module name="ACV-VA" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="acv-ca" target="1.8" />
+      <module name="ACV-CA" target="1.8" />
       <module name="ACV-CLOUD" target="1.8" />
       <module name="ACV-EUREKA" target="1.8" />
       <module name="ACV-NA" target="1.8" />
       <module name="ACV-UA" target="1.8" />
+      <module name="ACV-VA" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ACV-CA" options="" />
       <module name="ACV-EUREKA" options="" />
       <module name="ACV-NA" options="" />
       <module name="ACV-UA" options="" />
-      <module name="acv-ca" options="" />
     </option>
   </component>
 </project>

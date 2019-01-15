@@ -1,5 +1,7 @@
 package com.xxx.demo.repository.redistemplate.component;
 
+import com.alibaba.fastjson.parser.ParserConfig;
+import com.xxx.demo.frame.constants.PackageConstants;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
@@ -21,6 +23,7 @@ public class RedisConfig {
     @ConditionalOnMissingBean(name = "redisTemplate")
     public RedisTemplate<Object, Object> redisTemplate(
             RedisConnectionFactory redisConnectionFactory) {
+        ParserConfig.getGlobalInstance().addAccept(PackageConstants.packageName+".models.");
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
 
         //使用fastjson序列化
