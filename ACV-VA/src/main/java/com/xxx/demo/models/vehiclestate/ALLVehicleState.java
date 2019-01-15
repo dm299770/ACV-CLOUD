@@ -5,7 +5,7 @@ package com.xxx.demo.models.vehiclestate;
  *EV车辆状态
  * @author guo.zj
  */
-public class ALLVehicleState {
+public class ALLVehicleState implements java.io.Serializable {
     //请求ID
     private String requestid;
     //剩余电量
