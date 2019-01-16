@@ -39,7 +39,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     @Override
     public void insertList(String ids, String phoneNum, String token, String title,
                            String vin, String context, String createDate,
-                           TsUser tsUser, String type, Boolean readflag) {
+                           TsUser tsUser, String type, Integer readflag) {
         Notification no = new Notification();
         no.setIds(ids);
         no.setPhoneNum(phoneNum);
@@ -57,7 +57,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     @Override
     public void insertAll(String ids, String phoneNum, String token, String title,
                           String vin, String context, String createDate,
-                          String userId, String type, Boolean readflag) {
+                          String userId, String type, Integer readflag) {
         Notification no = new Notification();
         no.setIds(ids);
         no.setPhoneNum(phoneNum);
@@ -103,7 +103,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
             String title = notificationRequestList.getTitle();
             String context = notificationRequestList.getContext();
             String createDate = notificationRequestList.getCreateDate();
-            Boolean readflag = notificationRequestList.getReadflag();
+            Integer readflag = notificationRequestList.getReadflag();
             String ids = notificationRequestList.getIds();
             MessageResponse messageResponse = new MessageResponse();
             messageResponse.setContext(context);
@@ -121,10 +121,10 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     }
 
     @Override
-    public void updateUnRead(String ids, Boolean readflag) {
+    public void updateUnRead(String ids, Integer readflag) {
         Query query = new Query();
         query.addCriteria(Criteria.where("ids").is(ids));
-        Update update = Update.update("readflag", true);
+        Update update = Update.update("readflag", 1);
         mongoTemplate.updateMulti(query, update, Notification.class);
 
     }

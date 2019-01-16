@@ -21,7 +21,7 @@ public class Notification implements Serializable {
     private String type;//推送类型
 
     private String vin;//车架号
-    private Boolean readflag;//已读未读状态位
+    private Integer readflag;//已读未读状态位
     private String comment;//备注
     private String createDate;//发送时间
     private String userId;//用户userId
@@ -83,11 +83,11 @@ public class Notification implements Serializable {
         this.vin = vin;
     }
 
-    public Boolean getReadflag() {
+    public Integer getReadflag() {
         return readflag;
     }
 
-    public void setReadflag(Boolean readflag) {
+    public void setReadflag(Integer readflag) {
         this.readflag = readflag;
     }
 

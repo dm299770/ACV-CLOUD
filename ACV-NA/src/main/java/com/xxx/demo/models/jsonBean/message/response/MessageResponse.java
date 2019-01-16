@@ -12,7 +12,7 @@ public class MessageResponse {
     private String title;
     private String context;
     private String createDate;
-    private Boolean readflag;
+    private Integer readflag;
 
     public String getTitle() {
         return title;
@@ -38,11 +38,11 @@ public class MessageResponse {
         this.createDate = createDate;
     }
 
-    public Boolean getReadflag() {
+    public Integer getReadflag() {
         return readflag;
     }
 
-    public void setReadflag(Boolean readflag) {
+    public void setReadflag(Integer readflag) {
         this.readflag = readflag;
     }
 

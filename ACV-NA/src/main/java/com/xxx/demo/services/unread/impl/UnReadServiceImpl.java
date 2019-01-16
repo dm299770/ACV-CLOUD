@@ -24,21 +24,23 @@ public class UnReadServiceImpl implements UnReadService {
     public JSONObject updateUnRead(Notification no) {
         JSONObject json = new JSONObject();
         try {
-            Boolean readflag = no.getReadflag();
+            Integer readflag = no.getReadflag();
             String ids = no.getIds();
             logger.info("修改消息唯一id:" + ids);
 
             //判断状态是否为未读
-            if (readflag == false) {
+            if (readflag == 0) {
                 notificationMongoDBDao.updateUnRead(ids, readflag);
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, UPDATE_SUCCESS);
-            } else {
+            } else if (readflag == 1) {
                 //修改失败返回状态
-                json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
+                json.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
                 json.put(AppResultConstants.MSG, UPDATE_ERROR);
+            } else {
+                json.put(AppResultConstants.STATUS, AppResultConstants.NOTFOUND_ERROR);
+                json.put(AppResultConstants.MSG, AppResultConstants.Paramer_ERROR);
             }
-
         } catch (Exception e) {
             json.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
             json.put(AppResultConstants.MSG, AppResultConstants.SEVER_ERROR);

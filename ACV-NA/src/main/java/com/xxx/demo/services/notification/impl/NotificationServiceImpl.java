@@ -102,8 +102,8 @@ public class NotificationServiceImpl implements NotificationService {
                 //设置时间格式
                 SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 String createDate = df.format(new Date());
-                //未读标识符
-                Boolean readflag = false;
+                //未读标识符,未读
+                Integer readflag = 0;
                 //用手机号查token
                 String token = notificationDao.getDeviceToken(phoneNum);
                 logger.info("用户token信息:" + token);
@@ -189,8 +189,8 @@ public class NotificationServiceImpl implements NotificationService {
                 aps.put("content-available", 1);
                 obj.put("aps", aps);
                 mess.setRaw(obj.toString());
-                //未读标识符
-                Boolean readflag = false;
+                //未读标识符，未读
+                Integer readflag = 0;
                 //设置时间格式
                 SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 String createDate = df.format(new Date());
@@ -282,8 +282,8 @@ public class NotificationServiceImpl implements NotificationService {
                 aps.put("content-available", 1);
                 obj.put("aps", aps);
                 mess.setRaw(obj.toString());
-                //未读标识符
-                Boolean readflag = false;
+                //未读标识符，未读
+                Integer readflag = 0;
                 //设置时间格式
                 SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 String createDate = df.format(new Date());

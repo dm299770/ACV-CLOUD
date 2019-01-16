@@ -13,15 +13,15 @@ public interface INotificationMongoDBDao<T> {
     void insertList(String ids, String phoneNum, String token,
                     String title, String vin, String context,
                     String createDate, TsUser userId,
-                    String type, Boolean readflag);
+                    String type, Integer readflag);
 
     void insertAll(String ids, String phoneNum, String token,
                    String title, String vin, String context,
                    String createDate, String userId,
-                   String type, Boolean readflag);
+                   String type, Integer readflag);
 
     List<MessageResponse> queryList(String phoneNum, String type, Integer pageSize, Integer pageNum);
 
-    void updateUnRead(String ids, Boolean readflag);
+    void updateUnRead(String ids, Integer readflag);
 
 }
