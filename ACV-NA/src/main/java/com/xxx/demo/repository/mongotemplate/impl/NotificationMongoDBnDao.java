@@ -75,7 +75,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         MessageRequest pm = new MessageRequest();
         //判断推送查询类型
         Query query = new Query();
-        logger.info("消息类型:"+type);
+        logger.info("消息类型:" + type);
         if (type == "all" || "all".equals(type)) {
             query.addCriteria(Criteria.where("phoneNum").is(phoneNum));
         } else {
@@ -100,10 +100,12 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
             String title = notificationRequestList.getTitle();
             String context = notificationRequestList.getContext();
             String createDate = notificationRequestList.getCreateDate();
+            Boolean readflag = notificationRequestList.getReadflag();
             MessageResponse messageResponse = new MessageResponse();
             messageResponse.setContext(context);
             messageResponse.setTitle(title);
             messageResponse.setCreateDate(createDate);
+            messageResponse.setReadflag(readflag);
             messagesList.add(messageResponse);
         }
         Page<MessageResponse> pageList = new PageImpl<MessageResponse>(messagesList, pageable, count);

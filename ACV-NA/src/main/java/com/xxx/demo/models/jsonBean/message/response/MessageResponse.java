@@ -3,13 +3,14 @@ package com.xxx.demo.models.jsonBean.message.response;
 
 /**
  * 推送通知历史消息返回实体
- *
+ * <p>
  * Created by liyang on 2018/01/10.
  */
 public class MessageResponse {
     private String title;
     private String context;
     private String createDate;
+    private Boolean readflag;
 
     public String getTitle() {
         return title;
@@ -33,5 +34,13 @@ public class MessageResponse {
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public Boolean getReadflag() {
+        return readflag;
+    }
+
+    public void setReadflag(Boolean readflag) {
+        this.readflag = readflag;
     }
 }

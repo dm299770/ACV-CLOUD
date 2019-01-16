@@ -37,6 +37,7 @@ public class MessageServiceImpl implements MessageService {
             String type = message.getData().getType(); //通知类型
             Integer pageNum = message.getPageNum();
             Integer pageSize = message.getPageSize();
+
             if (phoneNum == null || "".equals(phoneNum)) {
                 json.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
                 json.put(AppResultConstants.MSG, PHONE_ERROR);
