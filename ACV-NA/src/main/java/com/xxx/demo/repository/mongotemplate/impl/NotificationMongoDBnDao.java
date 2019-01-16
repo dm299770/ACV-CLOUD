@@ -75,7 +75,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         MessageRequest pm = new MessageRequest();
         //判断推送查询类型
         Query query = new Query();
-        logger.info("");
+        logger.info("消息类型:"+type);
         if (type == "all" || "all".equals(type)) {
             query.addCriteria(Criteria.where("phoneNum").is(phoneNum));
         } else {
