@@ -8,7 +8,7 @@ package com.xxx.demo.models.jsonBean.message.response;
  */
 public class MessageResponse {
 
-    private String id;
+    private String ids;
     private String title;
     private String context;
     private String createDate;
@@ -46,11 +46,11 @@ public class MessageResponse {
         this.readflag = readflag;
     }
 
-    public String getId() {
-        return id;
+    public String getIds() {
+        return ids;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIds(String ids) {
+        this.ids = ids;
     }
 }

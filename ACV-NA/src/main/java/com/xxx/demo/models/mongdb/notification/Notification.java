@@ -12,8 +12,8 @@ import java.io.Serializable;
 @Document(collection = "Notification")
 public class Notification implements Serializable {
 
-    @Id
-    private String id;//id属性是给mongodb用的，用@Id注解修饰
+//    @Id
+    private String ids;//id属性是给mongodb用的，用@Id注解修饰
     private String token;//设备token
     private String title;//标题
     private String context;//消息推送内容
@@ -26,12 +26,12 @@ public class Notification implements Serializable {
     private String createDate;//发送时间
     private String userId;//用户userId
 
-    public String getId() {
-        return id;
+    public String getIds() {
+        return ids;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIds(String ids) {
+        this.ids = ids;
     }
 
     public String getToken() {

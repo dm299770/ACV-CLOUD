@@ -10,18 +10,18 @@ import java.util.List;
  */
 public interface INotificationMongoDBDao<T> {
 
-    void insertList(String id, String phoneNum, String token,
+    void insertList(String ids, String phoneNum, String token,
                     String title, String vin, String context,
                     String createDate, TsUser userId,
                     String type, Boolean readflag);
 
-    void insertAll(String id, String phoneNum, String token,
+    void insertAll(String ids, String phoneNum, String token,
                    String title, String vin, String context,
                    String createDate, String userId,
                    String type, Boolean readflag);
 
     List<MessageResponse> queryList(String phoneNum, String type, Integer pageSize, Integer pageNum);
 
-    void updateUnRead(String id, Boolean readflag);
+    void updateUnRead(String ids, Boolean readflag);
 
 }
