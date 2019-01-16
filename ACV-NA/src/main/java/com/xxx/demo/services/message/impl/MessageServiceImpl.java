@@ -33,8 +33,8 @@ public class MessageServiceImpl implements MessageService {
         try {
             logger.info("请求体:" + message);
 
-            String phoneNum = message.getNotification().getPhoneNum();//手机号
-            String type = message.getNotification().getType(); //通知类型
+            String phoneNum = message.getData().getPhoneNum();
+            String type = message.getData().getType(); //通知类型
             Integer pageNum = message.getPageNum();
             Integer pageSize = message.getPageSize();
             if (phoneNum == null || "".equals(phoneNum)) {

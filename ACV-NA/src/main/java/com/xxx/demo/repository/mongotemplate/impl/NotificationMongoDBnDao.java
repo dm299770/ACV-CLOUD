@@ -75,6 +75,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         MessageRequest pm = new MessageRequest();
         //判断推送查询类型
         Query query = new Query();
+        logger.info("");
         if (type == "all" || "all".equals(type)) {
             query.addCriteria(Criteria.where("phoneNum").is(phoneNum));
         } else {
@@ -90,7 +91,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         // 排序
         pm.setSort(sort);
         pageable.setPage(pm);
-        List<Notification> noResponse = mongoTemplate.find(query, Notification.class);
+        List<Notification> noResponse = mongoTemplate.find(query.with(pageable), Notification.class);
         logger.info("历史消息查询结果:" + noResponse);
         int count = (int) mongoTemplate.count(query, Notification.class);
         logger.info("查询总条数为" + count);

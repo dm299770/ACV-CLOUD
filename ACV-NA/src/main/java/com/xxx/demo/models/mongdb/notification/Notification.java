@@ -1,7 +1,7 @@
 package com.xxx.demo.models.mongdb.notification;
 
 import org.springframework.data.annotation.Id;
-//import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 推送实体类
  * Created by liyang on 2018/12/19.
  */
-//@Document(collection = "Notification")
+@Document(collection = "Notification")
 public class Notification implements Serializable {
 
     @Id

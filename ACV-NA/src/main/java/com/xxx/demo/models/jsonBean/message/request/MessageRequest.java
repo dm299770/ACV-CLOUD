@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Notification")
 public class MessageRequest {
     //通知推送实体
-    private Notification notification;
+    private Notification data;
     //当前页
     private Integer pageNum = 1;
     //每页显示数
@@ -20,12 +20,13 @@ public class MessageRequest {
     // 排序条件
     private Sort sort;
 
-    public Notification getNotification() {
-        return notification;
+
+    public Notification getData() {
+        return data;
     }
 
-    public void setNotification(Notification notification) {
-        this.notification = notification;
+    public void setData(Notification data) {
+        this.data = data;
     }
 
     public Integer getPageNum() {
