@@ -7,6 +7,8 @@ package com.xxx.demo.models.jsonBean.message.response;
  * Created by liyang on 2018/01/10.
  */
 public class MessageResponse {
+
+    private String id;
     private String title;
     private String context;
     private String createDate;
@@ -42,5 +44,13 @@ public class MessageResponse {
 
     public void setReadflag(Boolean readflag) {
         this.readflag = readflag;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -64,6 +64,7 @@ public class NotificationServiceImpl implements NotificationService {
             String phoneNum = no.getPhoneNum();
             String vin = no.getVin();
             String type = no.getType();
+            String id = UUID.randomUUID().toString().replaceAll("-", "");
 
             if (phoneNum == null || "".equals(phoneNum)) {
                 obj.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
@@ -115,11 +116,11 @@ public class NotificationServiceImpl implements NotificationService {
                     //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                     JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                     String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                    if ("0".equals(returnCodeString)) {
+                    if ("48".equals(returnCodeString)) {
                         obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         obj.put(AppResultConstants.MSG, SUCCESS_EX);
                         //把推送消息插入mongodb
-                        notificationMongoDBDao.insertList(phoneNum, token, title, vin, context, createDate, userId, type, readflag);
+                        notificationMongoDBDao.insertList(id, phoneNum, token, title, vin, context, createDate, userId, type, readflag);
                     } else {
                         obj.put(AppResultConstants.MSG, RETURN_EX);
                         obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);
@@ -152,6 +153,7 @@ public class NotificationServiceImpl implements NotificationService {
             String context = no.getContext();
             String vin = no.getVin();
             String type = no.getType();
+            String id = UUID.randomUUID().toString().replaceAll("-", "");
 
             if (phoneNum == null || "".equals(phoneNum)) {
                 obj.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
@@ -209,11 +211,11 @@ public class NotificationServiceImpl implements NotificationService {
                         //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                         JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                         String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                        if ("0".equals(returnCodeString)) {
+                        if ("48".equals(returnCodeString)) {
                             obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                             obj.put(AppResultConstants.MSG, SUCCESS_EX);
                             //把推送消息插入mongodb
-                            notificationMongoDBDao.insertList(phoneNums, token, title, vin, context, createDate, userId, type, readflag);
+                            notificationMongoDBDao.insertList(id, phoneNums, token, title, vin, context, createDate, userId, type, readflag);
                         } else {
                             obj.put(AppResultConstants.MSG, RETURN_EX);
                             obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);
@@ -245,7 +247,7 @@ public class NotificationServiceImpl implements NotificationService {
             String context = no.getContext();
             String type = no.getType();
             String vin = no.getVin();
-
+            String id = UUID.randomUUID().toString().replaceAll("-", "");
             String phoneNum = "999999";
             String token = "999999";
             String userId = "999999";
@@ -291,11 +293,11 @@ public class NotificationServiceImpl implements NotificationService {
                     //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                     JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                     String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                    if ("0".equals(returnCodeString)) {
+                    if ("48".equals(returnCodeString)) {
                         obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         obj.put(AppResultConstants.MSG, SUCCESS_EX);
                         //把推送消息插入mongodb
-                        notificationMongoDBDao.insertAll(phoneNum, token, title, vin, context, createDate, userId, type, readflag);
+                        notificationMongoDBDao.insertAll(id, phoneNum, token, title, vin, context, createDate, userId, type, readflag);
                     } else {
                         obj.put(AppResultConstants.MSG, RETURN_EX);
                         obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);

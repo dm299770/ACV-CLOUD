@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -36,10 +37,11 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void insertList(String phoneNum, String token, String title,
+    public void insertList(String id, String phoneNum, String token, String title,
                            String vin, String context, String createDate,
                            TsUser tsUser, String type, Boolean readflag) {
         Notification no = new Notification();
+        no.setId(id);
         no.setPhoneNum(phoneNum);
         no.setToken(token);
         no.setTitle(title);
@@ -53,10 +55,11 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     }
 
     @Override
-    public void insertAll(String phoneNum, String token, String title,
+    public void insertAll(String id, String phoneNum, String token, String title,
                           String vin, String context, String createDate,
                           String userId, String type, Boolean readflag) {
         Notification no = new Notification();
+        no.setId(id);
         no.setPhoneNum(phoneNum);
         no.setToken(token);
         no.setTitle(title);
@@ -101,11 +104,13 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
             String context = notificationRequestList.getContext();
             String createDate = notificationRequestList.getCreateDate();
             Boolean readflag = notificationRequestList.getReadflag();
+            String id = notificationRequestList.getId();
             MessageResponse messageResponse = new MessageResponse();
             messageResponse.setContext(context);
             messageResponse.setTitle(title);
             messageResponse.setCreateDate(createDate);
             messageResponse.setReadflag(readflag);
+            messageResponse.setId(id);
             messagesList.add(messageResponse);
         }
         Page<MessageResponse> pageList = new PageImpl<MessageResponse>(messagesList, pageable, count);
@@ -116,8 +121,11 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     }
 
     @Override
-    public void updateUnRead(Boolean readflag) {
+    public void updateUnRead(String id, Boolean readflag) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        Update update = Update.update("readflag", true);
+        mongoTemplate.updateMulti(query, update, Notification.class);
 
     }
-
 }

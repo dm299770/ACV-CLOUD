@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 public class UnReadServiceImpl implements UnReadService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private static final String UPDATE_SUCCESS = "未读状态修改成功";
+    private static final String UPDATE_ERROR = "该消息可能已经是已读状态";
+
     @Autowired
     private INotificationMongoDBDao notificationMongoDBDao;
 
@@ -22,12 +25,18 @@ public class UnReadServiceImpl implements UnReadService {
         JSONObject json = new JSONObject();
         try {
             Boolean readflag = no.getReadflag();
+            String id = no.getId();
+            logger.info("修改消息唯一id:" + id);
+
             //判断状态是否为未读
             if (readflag == false) {
-                notificationMongoDBDao.updateUnRead(readflag);
+                notificationMongoDBDao.updateUnRead(id, readflag);
+                json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
+                json.put(AppResultConstants.MSG, UPDATE_SUCCESS);
             } else {
                 //修改失败返回状态
-
+                json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
+                json.put(AppResultConstants.MSG, UPDATE_ERROR);
             }
 
         } catch (Exception e) {
@@ -35,6 +44,6 @@ public class UnReadServiceImpl implements UnReadService {
             json.put(AppResultConstants.MSG, AppResultConstants.SEVER_ERROR);
             e.printStackTrace();
         }
-        return null;
+        return json;
     }
 }
