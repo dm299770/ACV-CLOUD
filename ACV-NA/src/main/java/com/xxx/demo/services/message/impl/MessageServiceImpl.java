@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by liyang on 2018/01/10.
+ * Created by liyang on 2019/01/10.
  */
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -35,8 +35,8 @@ public class MessageServiceImpl implements MessageService {
 
             String phoneNum = message.getData().getPhoneNum();
             String type = message.getData().getType(); //通知类型
-            Integer pageNum = message.getPageNum();
-            Integer pageSize = message.getPageSize();
+            Integer pageNum = message.getData().getPageNum();
+            Integer pageSize = message.getData().getPageSize();
 
             if (phoneNum == null || "".equals(phoneNum)) {
                 json.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
@@ -68,6 +68,9 @@ public class MessageServiceImpl implements MessageService {
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, QUERY_SUCCESS);
                 json.put("data", messageResponse);
+            } else {
+                json.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
+                json.put(AppResultConstants.MSG, AppResultConstants.SEVER_ERROR);
             }
         } catch (Exception e) {
             json.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);

@@ -1,7 +1,6 @@
 package com.xxx.demo.models.jsonBean.message.request;
 
-import com.xxx.demo.models.mongdb.notification.Notification;
-import org.springframework.data.domain.Sort;
+import com.xxx.demo.models.mongdb.notification.NotificationRequest;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -11,45 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "Notification")
 public class MessageRequest {
-    //通知推送实体
-    private Notification data;
-    //当前页
-    private Integer pageNum = 1;
-    //每页显示数
-    private Integer pageSize = 10;
-    // 排序条件
-    private Sort sort;
+//    //通知推送实体
+    private NotificationRequest data;
 
-
-    public Notification getData() {
+    public NotificationRequest getData() {
         return data;
     }
 
-    public void setData(Notification data) {
+    public void setData(NotificationRequest data) {
         this.data = data;
-    }
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Sort getSort() {
-        return sort;
-    }
-
-    public void setSort(Sort sort) {
-        this.sort = sort;
     }
 }

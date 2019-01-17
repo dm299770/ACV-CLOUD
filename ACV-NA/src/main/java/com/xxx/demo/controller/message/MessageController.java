@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 公用通知查询接口
- * Created by liyang on 2018/01/10.
+ * Created by liyang on 2019/01/10.
  */
 @RestController
 @RequestMapping({"/message"})

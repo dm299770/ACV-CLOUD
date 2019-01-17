@@ -3,6 +3,7 @@ package com.xxx.demo.repository.mongotemplate.impl;
 import com.xxx.demo.models.jsonBean.message.request.MessageRequest;
 import com.xxx.demo.models.jsonBean.message.response.MessageResponse;
 import com.xxx.demo.models.mongdb.notification.Notification;
+import com.xxx.demo.models.mongdb.notification.NotificationRequest;
 import com.xxx.demo.models.sys.TsUser;
 import com.xxx.demo.repository.mongotemplate.INotificationMongoDBDao;
 import com.xxx.demo.services.page.MongoDBPageable;
@@ -75,7 +76,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     @Override
     public List<MessageResponse> queryList(String phoneNum, String type, Integer pageSize, Integer pageNum) {
         MongoDBPageable pageable = new MongoDBPageable();
-        MessageRequest pm = new MessageRequest();
+        NotificationRequest pm = new NotificationRequest();
         //判断推送查询类型
         Query query = new Query();
         logger.info("消息类型:" + type);
@@ -94,12 +95,12 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         // 排序
         pm.setSort(sort);
         pageable.setPage(pm);
-        List<Notification> noResponse = mongoTemplate.find(query.with(pageable), Notification.class);
+        List<NotificationRequest> noResponse = mongoTemplate.find(query.with(pageable), NotificationRequest.class);
         logger.info("历史消息查询结果:" + noResponse);
-        int count = (int) mongoTemplate.count(query, Notification.class);
+        int count = (int) mongoTemplate.count(query, NotificationRequest.class);
         logger.info("查询总条数为" + count);
         List<MessageResponse> messagesList = new ArrayList<>();
-        for (Notification notificationRequestList : noResponse) {
+        for (NotificationRequest notificationRequestList : noResponse) {
             String title = notificationRequestList.getTitle();
             String context = notificationRequestList.getContext();
             String createDate = notificationRequestList.getCreateDate();

@@ -4,7 +4,7 @@ package com.xxx.demo.models.jsonBean.message.response;
 /**
  * 推送通知历史消息返回实体
  * <p>
- * Created by liyang on 2018/01/10.
+ * Created by liyang on 2019/01/10.
  */
 public class MessageResponse {
 

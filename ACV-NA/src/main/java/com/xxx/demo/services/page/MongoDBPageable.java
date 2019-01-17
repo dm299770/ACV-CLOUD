@@ -2,11 +2,12 @@ package com.xxx.demo.services.page;
 
 import java.io.Serializable;
 import com.xxx.demo.models.jsonBean.message.request.MessageRequest;
+import com.xxx.demo.models.mongdb.notification.NotificationRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 /**
- * Created by liyang on 2018/01/14.
+ * Created by liyang on 2019/01/14.
  *
  * @Description: MongoDB分页公共类
  */
@@ -17,13 +18,13 @@ public class MongoDBPageable implements Serializable, Pageable {
      */
     private static final long serialVersionUID = 1L;
 
-    MessageRequest page;
+    NotificationRequest page;
 
-    public MessageRequest getPage() {
+    public NotificationRequest getPage() {
         return page;
     }
 
-    public void setPage(MessageRequest page) {
+    public void setPage(NotificationRequest page) {
         this.page = page;
     }
 
