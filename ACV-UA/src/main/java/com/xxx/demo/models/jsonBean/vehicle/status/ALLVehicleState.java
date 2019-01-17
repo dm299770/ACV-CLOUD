@@ -55,6 +55,8 @@ public class ALLVehicleState {
 
 
 
+
+
     public int getTrunkstatus() {
         return trunkstatus;
     }
