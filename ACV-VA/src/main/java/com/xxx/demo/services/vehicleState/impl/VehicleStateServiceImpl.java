@@ -15,6 +15,7 @@ import com.xxx.demo.services.vehicleState.VehicleStateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.stereotype.Service;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data","");
-            }else if ("APP".equals(serviceType) && "NISSAN0000000000".equals(vin)) {
+            }else if ("APP".equals(serviceType) && "NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 VehicleState vehicleState=new VehicleState();
                 if(i==0){
                     endurancemileage=435;
@@ -126,7 +127,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data","");
-            }else if ("APP".equals(serviceType) && "NISSAN0000000000".equals(vin)) {
+            }else if ("APP".equals(serviceType) && "NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 VehicleState vehicleState=new VehicleState();
                 if("vehicle".equals(controlType)){
                     jsonObject.put("msg", "重置车辆数据成功");
@@ -173,7 +174,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data","");
-            }else if ("NISSAN0000000000".equals(vin)) {
+            }else if ("NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 EVVehicleState vehicleState=new EVVehicleState();
                 resbatterycap=0.60F;
                 drivingstatus="Parking";
@@ -182,13 +183,13 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 doorstatus=0;
                 sunroofstatus=0;
                 requestid="123456";
-                usablekm=0F;
-                consumerate=88.8F;
+                usablekm=288F;
+                consumerate=15.6F;
                 updatetime=System.currentTimeMillis()*1000;
-                tirepressure.setBL(0.8F);
-                tirepressure.setBR(0.8F);
-                tirepressure.setFL(0.8F);
-                tirepressure.setFR(1.0F);
+                tirepressure.setBL(2.6F);
+                tirepressure.setBR(2.5F);
+                tirepressure.setFL(2.6F);
+                tirepressure.setFR(1.8F);
                 tirepressure.setBlstate(0);
                 tirepressure.setBrstate(0);
                 tirepressure.setFlstate(0);
@@ -239,7 +240,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data","");
-            }else if ("NISSAN0000000000".equals(vin)) {
+            }else if ("NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 AirConditionStatus airConditionStatus=new AirConditionStatus();
                 airConditionStatus.setOnoff(1);
                 airConditionStatus.setModel(1);
@@ -280,7 +281,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data", "");
-            } else if ("NISSAN0000000000".equals(vin)) {
+            } else if ("NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 vehicleState=this.getvehiclestate(vin);
                 vehicleState.setVin(vin);
                 jsonObject.put("status", 200);
@@ -331,7 +332,7 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 jsonObject.put("status", 201);
                 jsonObject.put("msg", "传入参数有误");
                 jsonObject.put("data","");
-            }else if ("NISSAN0000000000".equals(vin)) {
+            }else if ("NISSAN0000000000".equals(vin)||"10".equals(vin)) {
                 ALLVehicleState vehicleState=new ALLVehicleState();
                 VehicleCategory vehicleCategory=new VehicleCategory();
                 resbatterycap=data.getData().getResbatterycap();
@@ -344,24 +345,30 @@ public class VehicleStateServiceImpl implements VehicleStateService {
                 usablekm=data.getData().getUsablekm();
                 consumerate=data.getData().getConsumerate();
                 updatetime=System.currentTimeMillis()*1000;
-                tirepressure.setBL(data.getData().getTirepressure().getBL());
-                tirepressure.setBR(data.getData().getTirepressure().getBR());
-                tirepressure.setFL(data.getData().getTirepressure().getFL());
-                tirepressure.setFR(data.getData().getTirepressure().getFR());
-                tirepressure.setBlstate((data.getData().getTirepressure().getBlstate()));
-                tirepressure.setBrstate((data.getData().getTirepressure().getBrstate()));
-                tirepressure.setFlstate((data.getData().getTirepressure().getFlstate()));
-                tirepressure.setFrstate((data.getData().getTirepressure().getFrstate()));
-                windowstatus.setBL(data.getData().getWindowstatus().getBL());
-                windowstatus.setFL(data.getData().getWindowstatus().getFL());
-                windowstatus.setFR(data.getData().getWindowstatus().getFR());
-                windowstatus.setBR(data.getData().getWindowstatus().getBR());
+                if(data.getData().getTirepressure()!=null) {
+                    tirepressure.setBL(data.getData().getTirepressure().getBL());
+                    tirepressure.setBR(data.getData().getTirepressure().getBR());
+                    tirepressure.setFL(data.getData().getTirepressure().getFL());
+                    tirepressure.setFR(data.getData().getTirepressure().getFR());
+                    tirepressure.setBlstate((data.getData().getTirepressure().getBlstate()));
+                    tirepressure.setBrstate((data.getData().getTirepressure().getBrstate()));
+                    tirepressure.setFlstate((data.getData().getTirepressure().getFlstate()));
+                    tirepressure.setFrstate((data.getData().getTirepressure().getFrstate()));
+                }
+                if(data.getData().getWindowstatus()!=null) {
+                    windowstatus.setBL(data.getData().getWindowstatus().getBL());
+                    windowstatus.setFL(data.getData().getWindowstatus().getFL());
+                    windowstatus.setFR(data.getData().getWindowstatus().getFR());
+                    windowstatus.setBR(data.getData().getWindowstatus().getBR());
+                }
                 maxkm=data.getData().getMaxkm();
                 resoilcap=data.getData().getResoilcap();
                 roadhaul=data.getData().getRoadhaul();
                 fcphk=data.getData().getFcphk();
                 diagnosedate=data.getData().getDiagnosedate();
-                vehicletype=data.getData().getVehicleCategory().getType();
+                if(data.getData().getVehicleCategory()!=null) {
+                    vehicletype = data.getData().getVehicleCategory().getType();
+                }
                 vehicleCategory.setType(vehicletype);
                 vehicleState.setVehicleCategory(vehicleCategory);
                 vehicleState.setMaxkm(maxkm);

@@ -57,7 +57,7 @@ public class vehicleStateController {
 
 
     @ResponseBody
-    @RequestMapping(value = "EVvehiclestate")
+    @RequestMapping(value = "EVVehicleState")
     public Object EVvehiclestate(@RequestBody VehicleStateRequestParameter data) {
         JSONObject result=null;
         try {
