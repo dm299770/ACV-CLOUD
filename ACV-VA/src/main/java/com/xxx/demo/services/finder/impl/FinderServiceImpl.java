@@ -4,6 +4,8 @@ package com.xxx.demo.services.finder.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xxx.demo.jsonBean.finder.myCarFinder;
+import com.xxx.demo.jsonBean.finder.request.PathRequestParameter;
+import com.xxx.demo.jsonBean.finder.request.SendToCarRequestParameter;
 import com.xxx.demo.jsonBean.remote.RequestParameters;
 import com.xxx.demo.services.finder.FinderService;
 import org.slf4j.Logger;
@@ -58,6 +60,58 @@ public class FinderServiceImpl implements FinderService {
         }
         return jsonObject;
     }
+    @Override
+    public JSONObject sendToCar(SendToCarRequestParameter data) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            logger.info("请求体:" + data);
+            if (1==1) {
+                Double longitude =121.4605567391;
+                Double latitude = 31.2175575048;
+                Thread.sleep(900);
+                jsonObject.put("status", 200);
+                jsonObject.put("msg", "发送到车成功");
+                logger.info("返回的json:{}", jsonObject);
+            } else {
+                jsonObject.put("status", 400);
+                jsonObject.put("msg", "failed");
+                jsonObject.put("data","");
+                logger.info("返回的json:{}",jsonObject);
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+            logger.error("系统内部错误!");
+            jsonObject.put("status",500);
+            jsonObject.put("msg", "服务器处理失败，系统内部错误");
+            jsonObject.put("data","");
+        }
+        return jsonObject;
+    }
 
+    @Override
+    public JSONObject path(PathRequestParameter request) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            logger.info("请求体:" + request);
+            if (1==1) {
+                Thread.sleep(900);
+                jsonObject.put("status", 200);
+                jsonObject.put("msg", " 发送到车成功");
+                logger.info("返回的json:{}", jsonObject);
+            } else {
+                jsonObject.put("status", 400);
+                jsonObject.put("msg", "failed");
+                jsonObject.put("data","");
+                logger.info("返回的json:{}",jsonObject);
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+            logger.error("系统内部错误!");
+            jsonObject.put("status",500);
+            jsonObject.put("msg", "服务器处理失败，系统内部错误");
+            jsonObject.put("data","");
+        }
+        return jsonObject;
+    }
 
 }

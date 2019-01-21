@@ -1,6 +1,8 @@
 package com.xxx.demo.controller.finder;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xxx.demo.jsonBean.finder.request.PathRequestParameter;
+import com.xxx.demo.jsonBean.finder.request.SendToCarRequestParameter;
 import com.xxx.demo.jsonBean.remote.RequestParameters;
 import com.xxx.demo.services.finder.FinderService;
 import org.slf4j.Logger;
@@ -25,6 +27,32 @@ public class FinderController {
         JSONObject result=null;
         try {
             result = finderService.finder(data);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "sendToCar")
+    public Object sendToCar(@RequestBody SendToCarRequestParameter data) {
+        JSONObject result=null;
+        try {
+            result = finderService.sendToCar(data);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "path")
+    public Object path(@RequestBody PathRequestParameter data) {
+        JSONObject result=null;
+        try {
+            result = finderService.path(data);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
