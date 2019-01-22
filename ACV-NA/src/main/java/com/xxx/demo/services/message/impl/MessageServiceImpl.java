@@ -30,6 +30,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public JSONObject selectMessage(MessageRequest message) {
         JSONObject json = new JSONObject();
+        JSONObject obj = new JSONObject();
         try {
             logger.info("请求体:" + message);
 
@@ -49,25 +50,29 @@ public class MessageServiceImpl implements MessageService {
                 List<MessageResponse> messageResponse = notificationMongoDBDao.queryList(phoneNum, type, pageSize, pageNum);
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, QUERY_SUCCESS);
-                json.put("data", messageResponse);
+                obj.put("message", messageResponse);
+                json.put("data", obj);
             } else if ("system".equals(type)) {
                 //查系统类型
                 List<MessageResponse> messageResponse = notificationMongoDBDao.queryList(phoneNum, type, pageSize, pageNum);
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, QUERY_SUCCESS);
-                json.put("data", messageResponse);
+                obj.put("message", messageResponse);
+                json.put("data", obj);
             } else if ("remind".equals(type)) {
                 //查提醒类型
                 List<MessageResponse> messageResponse = notificationMongoDBDao.queryList(phoneNum, type, pageSize, pageNum);
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, QUERY_SUCCESS);
-                json.put("data", messageResponse);
+                obj.put("message", messageResponse);
+                json.put("data", obj);
             } else if ("warn".equals(type)) {
                 //查警告类型
                 List<MessageResponse> messageResponse = notificationMongoDBDao.queryList(phoneNum, type, pageSize, pageNum);
                 json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 json.put(AppResultConstants.MSG, QUERY_SUCCESS);
-                json.put("data", messageResponse);
+                obj.put("message", messageResponse);
+                json.put("data", obj);
             } else {
                 json.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
                 json.put(AppResultConstants.MSG, AppResultConstants.SEVER_ERROR);

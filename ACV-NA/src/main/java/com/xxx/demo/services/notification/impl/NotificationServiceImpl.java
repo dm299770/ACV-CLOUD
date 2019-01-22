@@ -6,6 +6,7 @@ import com.tencent.xinge.MessageIOS;
 import com.tencent.xinge.TimeInterval;
 import com.tencent.xinge.XingeApp;
 import com.xxx.demo.frame.constants.AppResultConstants;
+import com.xxx.demo.frame.util.DateUtil;
 import com.xxx.demo.mapper.user.TsUserMapper;
 import com.xxx.demo.models.mongdb.notification.Notification;
 import com.xxx.demo.models.sys.TsUser;
@@ -55,8 +56,6 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public JSONObject pushMsgDevice(Notification no) {
         JSONObject obj = new JSONObject();
-        JSONObject aps = new JSONObject();
-        JSONObject alert = new JSONObject();
         try {
             logger.info("请求体:" + no);
             String title = no.getTitle();
@@ -65,6 +64,7 @@ public class NotificationServiceImpl implements NotificationService {
             String vin = no.getVin();
             String type = no.getType();
             String ids = UUID.randomUUID().toString().replaceAll("-", "");
+            String imageURL = no.getImageURL();
 
             if (phoneNum == null || "".equals(phoneNum)) {
                 obj.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
@@ -80,28 +80,10 @@ public class NotificationServiceImpl implements NotificationService {
                 obj.put(AppResultConstants.MSG, TYPE_ERROR);
             } else {
                 XingeApp xinge = new XingeApp(accessId, secretKey);
-                MessageIOS mess = new MessageIOS();
-                mess.setExpireTime(86400);
-                mess.setAlert("ios test");
-                mess.setBadge(1);
-                mess.setSound("beep.wav");
-                Map<String, Object> custom = new HashMap<String, Object>();
-                custom.put("key", "value");
-                mess.setCustom(custom);
-                TimeInterval acceptTime = new TimeInterval(0, 0, 23, 59);
-                mess.addAcceptTime(acceptTime);
-                alert.put("title", title);
-                alert.put("context", context);
-                alert.put("type", type);
-                aps.put("sound", "beep.wav");
-                aps.put("alert", alert);
-                aps.put("badge", 1);
-                aps.put("content-available", 1);
-                obj.put("aps", aps);
-                mess.setRaw(obj.toString());
+                MessageIOS mess = pushClient(title, context, type, imageURL);
+
                 //设置时间格式
-                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                String createDate = df.format(new Date());
+                String createDate = DateUtil.getDate("yyyy/MM/dd HH:mm:ss");
                 //未读标识符,未读
                 Integer readflag = 0;
                 //用手机号查token
@@ -110,17 +92,17 @@ public class NotificationServiceImpl implements NotificationService {
                 //去数据库查userId
                 TsUser userId = tsUserMapper.findUserId(phoneNum);
                 //推送
-                String returnCode = xinge.pushSingleAccount(0, phoneNum, mess, XingeApp.IOSENV_DEV).toString();
+                String returnCode = xinge.pushSingleDevice(token, mess, XingeApp.IOSENV_DEV).toString();
                 //判断返回状态码是否推送成功
                 if (returnCode.contains("ret_code")) {
                     //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                     JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                     String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                    if ("48".equals(returnCodeString)) {
+                    if ("0".equals(returnCodeString)) {
                         obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         obj.put(AppResultConstants.MSG, SUCCESS_EX);
                         //把推送消息插入mongodb
-                        notificationMongoDBDao.insertList(ids, phoneNum, token, title, vin, context, createDate, userId, type, readflag);
+                        notificationMongoDBDao.insertList(ids, phoneNum, token, title, vin, context, createDate, userId, type, readflag, imageURL);
                     } else {
                         obj.put(AppResultConstants.MSG, RETURN_EX);
                         obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);
@@ -131,6 +113,7 @@ public class NotificationServiceImpl implements NotificationService {
                     logger.info("返回状态码:" + returnCode);
                 }
                 logger.info(obj.toString());
+                logger.info("返回状态码:" + returnCode);
             }
         } catch (Exception e) {
             obj.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
@@ -144,8 +127,6 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public JSONObject pushMsgDeviceList(Notification no) {
         JSONObject obj = new JSONObject();
-        JSONObject aps = new JSONObject();
-        JSONObject alert = new JSONObject();
         try {
             logger.info("请求体:" + no);
             String phoneNum = no.getPhoneNum();
@@ -154,6 +135,7 @@ public class NotificationServiceImpl implements NotificationService {
             String vin = no.getVin();
             String type = no.getType();
             String ids = UUID.randomUUID().toString().replaceAll("-", "");
+            String imageURL = no.getImageURL();
 
             if (phoneNum == null || "".equals(phoneNum)) {
                 obj.put(AppResultConstants.STATUS, AppResultConstants.Paramer_ERROR);
@@ -170,30 +152,12 @@ public class NotificationServiceImpl implements NotificationService {
                 obj.put(AppResultConstants.MSG, TYPE_ERROR);
             } else {
                 XingeApp xinge = new XingeApp(accessId, secretKey);
-                MessageIOS mess = new MessageIOS();
-                mess.setExpireTime(86400);
-                mess.setAlert("ios test");
-                mess.setBadge(1);
-                mess.setSound("beep.wav");
-                Map<String, Object> custom = new HashMap<String, Object>();
-                custom.put("key", "value");
-                mess.setCustom(custom);
-                TimeInterval acceptTime = new TimeInterval(0, 0, 23, 59);
-                mess.addAcceptTime(acceptTime);
-                alert.put("title", title);
-                alert.put("context", context);
-                alert.put("type", type);
-                aps.put("sound", "beep.wav");
-                aps.put("alert", alert);
-                aps.put("badge", 1);
-                aps.put("content-available", 1);
-                obj.put("aps", aps);
-                mess.setRaw(obj.toString());
+                MessageIOS mess = pushClient(title, context, type, imageURL);
+
                 //未读标识符，未读
                 Integer readflag = 0;
                 //设置时间格式
-                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                String createDate = df.format(new Date());
+                String createDate = DateUtil.getDate("yyyy/MM/dd HH:mm:ss");
                 //json格式转换
                 JSONArray jsonArray = JSONArray.parseArray(phoneNum);
                 List<String> phoneNumList = jsonArray.toJavaList(String.class);
@@ -205,17 +169,17 @@ public class NotificationServiceImpl implements NotificationService {
                     //去数据库查userId
                     TsUser userId = tsUserMapper.findUserId(phoneNums);
                     //推送
-                    String returnCode = xinge.pushSingleAccount(0, phoneNums, mess, XingeApp.IOSENV_DEV).toString();
+                    String returnCode = xinge.pushSingleDevice(token, mess, XingeApp.IOSENV_DEV).toString();
                     //判断返回状态码是否推送成功
                     if (returnCode.contains("ret_code")) {
                         //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                         JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                         String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                        if ("48".equals(returnCodeString)) {
+                        if ("0".equals(returnCodeString)) {
                             obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                             obj.put(AppResultConstants.MSG, SUCCESS_EX);
                             //把推送消息插入mongodb
-                            notificationMongoDBDao.insertList(ids, phoneNums, token, title, vin, context, createDate, userId, type, readflag);
+                            notificationMongoDBDao.insertList(ids, phoneNums, token, title, vin, context, createDate, userId, type, readflag, imageURL);
                         } else {
                             obj.put(AppResultConstants.MSG, RETURN_EX);
                             obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);
@@ -239,8 +203,6 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public JSONObject pushMsgDeviceAll(Notification no) {
         JSONObject obj = new JSONObject();
-        JSONObject aps = new JSONObject();
-        JSONObject alert = new JSONObject();
         try {
             logger.info("请求体:" + no);
             String title = no.getTitle();
@@ -248,6 +210,7 @@ public class NotificationServiceImpl implements NotificationService {
             String type = no.getType();
             String vin = no.getVin();
             String ids = UUID.randomUUID().toString().replaceAll("-", "");
+            String imageURL = no.getImageURL();
             String phoneNum = "999999";
             String token = "999999";
             String userId = "999999";
@@ -263,41 +226,22 @@ public class NotificationServiceImpl implements NotificationService {
                 obj.put(AppResultConstants.MSG, TYPE_ERROR);
             } else {
                 XingeApp xinge = new XingeApp(accessId, secretKey);
-                MessageIOS mess = new MessageIOS();
-                mess.setExpireTime(86400);
-                mess.setAlert("ios test");
-                mess.setBadge(1);
-                mess.setSound("beep.wav");
-                Map<String, Object> custom = new HashMap<String, Object>();
-                custom.put("key", "value");
-                mess.setCustom(custom);
-                TimeInterval acceptTime = new TimeInterval(0, 0, 23, 59);
-                mess.addAcceptTime(acceptTime);
-                alert.put("title", title);
-                alert.put("context", context);
-                alert.put("type", type);
-                aps.put("sound", "beep.wav");
-                aps.put("alert", alert);
-                aps.put("badge", 1);
-                aps.put("content-available", 1);
-                obj.put("aps", aps);
-                mess.setRaw(obj.toString());
+                MessageIOS mess = pushClient(title, context, type, imageURL);
                 //未读标识符，未读
                 Integer readflag = 0;
                 //设置时间格式
-                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                String createDate = df.format(new Date());
+                String createDate = DateUtil.getDate("yyyy/MM/dd HH:mm:ss");
                 String returnCode = xinge.pushAllDevice(0, mess, XingeApp.IOSENV_DEV).toString();
                 //判断返回状态码是否推送成功
                 if (returnCode.contains("ret_code")) {
                     //{"err_msg":"无效帐号，请检查后重试","ret_code":48}
                     JSONObject returnCodeJson = JSONObject.parseObject(returnCode);
                     String returnCodeString = String.valueOf(returnCodeJson.get("ret_code"));
-                    if ("48".equals(returnCodeString)) {
+                    if ("0".equals(returnCodeString)) {
                         obj.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         obj.put(AppResultConstants.MSG, SUCCESS_EX);
                         //把推送消息插入mongodb
-                        notificationMongoDBDao.insertAll(ids, phoneNum, token, title, vin, context, createDate, userId, type, readflag);
+                        notificationMongoDBDao.insertAll(ids, phoneNum, token, title, vin, context, createDate, userId, type, readflag, imageURL);
                     } else {
                         obj.put(AppResultConstants.MSG, RETURN_EX);
                         obj.put(AppResultConstants.STATUS, "返回状态码:" + returnCodeString);
@@ -315,5 +259,47 @@ public class NotificationServiceImpl implements NotificationService {
             e.printStackTrace();
         }
         return obj;
+    }
+
+    /**
+     * 封装信鸽SDK
+     *
+     * @param title    标题
+     * @param context  内容
+     * @param type     类型
+     * @param imageURL 图片路径
+     * @return mess
+     */
+    private MessageIOS pushClient(String title, String context, String type, String imageURL) {
+        JSONObject obj = new JSONObject();
+        JSONObject aps = new JSONObject();
+        JSONObject alert = new JSONObject();
+        MessageIOS mess = new MessageIOS();
+        mess.setExpireTime(86400);
+        mess.setAlert("ios test");
+        mess.setBadge(1);
+        mess.setSound("beep.wav");
+        Map<String, Object> custom = new HashMap<String, Object>();
+        custom.put("key", "value");
+        mess.setCustom(custom);
+        TimeInterval acceptTime = new TimeInterval(0, 0, 23, 59);
+        mess.addAcceptTime(acceptTime);
+        alert.put("title", title);
+        alert.put("body", context);
+        alert.put("type", type);
+        aps.put("sound", "beep.wav");
+        aps.put("alert", alert);
+        aps.put("badge", 1);
+        aps.put("content-available", 1);
+        aps.put("mutable-content", 1);
+//        if (imageURL == null || "".equals(imageURL)) {
+//            if (){
+//
+//            }
+//        }
+        obj.put("xg_media_resources", imageURL);
+        obj.put("aps", aps);
+        mess.setRaw(obj.toString());
+        return mess;
     }
 }

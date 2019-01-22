@@ -30,6 +30,7 @@ public class NotificationRequest implements Serializable {
     private Integer pageNum = 1; //当前页
     private Integer pageSize = 10;//每页显示数
     private Sort sort; // 排序条件
+    private String imageURL;//图片路径
 
     public String getIds() {
         return ids;
@@ -142,5 +143,13 @@ public class NotificationRequest implements Serializable {
 
     public void setSort(Sort sort) {
         this.sort = sort;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

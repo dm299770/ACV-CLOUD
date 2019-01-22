@@ -3,6 +3,7 @@ package com.xxx.demo.services.sms.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.xxx.demo.frame.constants.AppResultConstants;
 import com.xxx.demo.frame.constants.ApplicationPropertiesConstants;
+import com.xxx.demo.frame.util.DateUtil;
 import com.xxx.demo.frame.util.SMSUtil;
 import com.xxx.demo.models.mongdb.sms.SMS;
 import com.xxx.demo.repository.mongotemplate.ISMSDao;
@@ -68,8 +69,7 @@ class SMSServiceImpl implements SMSService {
                         json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
 
                         //将手机号和短信内容存到mongoDB中
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        String createDate = df.format(new Date());
+                        String createDate = DateUtil.getDate("yyyy/MM/dd HH:mm:ss");
                         messagesDao.insertSms(phoneNum, content, createDate);
                     } else {
                         json.put(AppResultConstants.MSG, SMS_RETURN_EX);

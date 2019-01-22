@@ -1,6 +1,5 @@
 package com.xxx.demo.repository.mongotemplate.impl;
 
-import com.xxx.demo.models.jsonBean.message.request.MessageRequest;
 import com.xxx.demo.models.jsonBean.message.response.MessageResponse;
 import com.xxx.demo.models.mongdb.notification.Notification;
 import com.xxx.demo.models.mongdb.notification.NotificationRequest;
@@ -40,36 +39,24 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
     @Override
     public void insertList(String ids, String phoneNum, String token, String title,
                            String vin, String context, String createDate,
-                           TsUser tsUser, String type, Integer readflag) {
-        Notification no = new Notification();
-        no.setIds(ids);
-        no.setPhoneNum(phoneNum);
-        no.setToken(token);
-        no.setTitle(title);
-        no.setContext(context);
-        no.setReadflag(readflag);
-        no.setVin(vin);
-        no.setType(type);
-        no.setCreateDate(createDate);
-        no.setUserId(tsUser.getUserId());
+                           TsUser tsUser, String type, Integer readflag, String imageURL) {
+        Notification no = new Notification(ids, token,
+                title, context,
+                phoneNum, type,
+                vin, readflag, createDate,
+                tsUser.getUserId(), imageURL);
         mongoTemplate.insert(no);
     }
 
     @Override
     public void insertAll(String ids, String phoneNum, String token, String title,
                           String vin, String context, String createDate,
-                          String userId, String type, Integer readflag) {
-        Notification no = new Notification();
-        no.setIds(ids);
-        no.setPhoneNum(phoneNum);
-        no.setToken(token);
-        no.setTitle(title);
-        no.setContext(context);
-        no.setReadflag(readflag);
-        no.setVin(vin);
-        no.setType(type);
-        no.setCreateDate(createDate);
-        no.setUserId(userId);
+                          String userId, String type, Integer readflag, String imageURL) {
+        Notification no = new Notification(ids, token,
+                title, context,
+                phoneNum, type,
+                vin, readflag, createDate,
+                userId, imageURL);
         mongoTemplate.insert(no);
     }
 
@@ -86,7 +73,7 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
             query.addCriteria(Criteria.where("type").is(type).and("phoneNum").is(phoneNum));
         }
         List<Order> orders = new ArrayList<Order>();  //排序
-        orders.add(new Order(Direction.DESC, "phoneNum"));
+        orders.add(new Order(Direction.DESC, "createDate"));
         Sort sort = new Sort(orders);
         pm.setSort(sort);
         pm.setPageNum(pageNum);
@@ -103,15 +90,11 @@ public class NotificationMongoDBnDao<T> implements INotificationMongoDBDao {
         for (NotificationRequest notificationRequestList : noResponse) {
             String title = notificationRequestList.getTitle();
             String context = notificationRequestList.getContext();
-            String createDate = notificationRequestList.getCreateDate();
+            String createDate = notificationRequestList.getCreateDate().substring(6, 16);
             Integer readflag = notificationRequestList.getReadflag();
             String ids = notificationRequestList.getIds();
-            MessageResponse messageResponse = new MessageResponse();
-            messageResponse.setContext(context);
-            messageResponse.setTitle(title);
-            messageResponse.setCreateDate(createDate);
-            messageResponse.setReadflag(readflag);
-            messageResponse.setIds(ids);
+            String imageURL = notificationRequestList.getImageURL();
+            MessageResponse messageResponse = new MessageResponse(ids, title, context, createDate, readflag, imageURL);
             messagesList.add(messageResponse);
         }
         Page<MessageResponse> pageList = new PageImpl<MessageResponse>(messagesList, pageable, count);

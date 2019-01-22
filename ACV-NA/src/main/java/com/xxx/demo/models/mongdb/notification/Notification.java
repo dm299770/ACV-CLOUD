@@ -2,7 +2,6 @@ package com.xxx.demo.models.mongdb.notification;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.io.Serializable;
 
 /**
@@ -12,7 +11,7 @@ import java.io.Serializable;
 @Document(collection = "Notification")
 public class Notification implements Serializable {
 
-//    @Id
+    //    @Id
     private String ids;//id属性是给mongodb用的，用@Id注解修饰
     private String token;//设备token
     private String title;//标题
@@ -25,6 +24,8 @@ public class Notification implements Serializable {
     private String comment;//备注
     private String createDate;//发送时间
     private String userId;//用户userId
+
+    private String imageURL;//图片路径
 
     public String getIds() {
         return ids;
@@ -113,5 +114,31 @@ public class Notification implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public Notification(String ids, String token,
+                        String title, String context,
+                        String phoneNum, String type,
+                        String vin, Integer readflag,
+                        String createDate, String userId, String imageURL) {
+        this.ids = ids;
+        this.token = token;
+        this.title = title;
+        this.context = context;
+        this.phoneNum = phoneNum;
+        this.type = type;
+        this.vin = vin;
+        this.readflag = readflag;
+        this.createDate = createDate;
+        this.userId = userId;
+        this.imageURL = imageURL;
     }
 }

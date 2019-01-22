@@ -13,12 +13,12 @@ public interface INotificationMongoDBDao<T> {
     void insertList(String ids, String phoneNum, String token,
                     String title, String vin, String context,
                     String createDate, TsUser userId,
-                    String type, Integer readflag);
+                    String type, Integer readflag, String imageURL);
 
     void insertAll(String ids, String phoneNum, String token,
                    String title, String vin, String context,
                    String createDate, String userId,
-                   String type, Integer readflag);
+                   String type, Integer readflag, String imageURL);
 
     List<MessageResponse> queryList(String phoneNum, String type, Integer pageSize, Integer pageNum);
 

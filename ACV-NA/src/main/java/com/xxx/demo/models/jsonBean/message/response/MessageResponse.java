@@ -13,6 +13,7 @@ public class MessageResponse {
     private String context;
     private String createDate;
     private Integer readflag;
+    private String imageURL;
 
     public String getTitle() {
         return title;
@@ -52,5 +53,22 @@ public class MessageResponse {
 
     public void setIds(String ids) {
         this.ids = ids;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public MessageResponse(String ids, String title, String context, String createDate, Integer readflag, String imageURL) {
+        this.ids = ids;
+        this.title = title;
+        this.context = context;
+        this.createDate = createDate;
+        this.readflag = readflag;
+        this.imageURL = imageURL;
     }
 }
