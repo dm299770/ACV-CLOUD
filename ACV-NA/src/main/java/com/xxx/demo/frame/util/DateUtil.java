@@ -10,7 +10,7 @@ import java.util.Date;
 
 
 /**
- * 日期工具类, 继承org.apache.commons.lang3.time.DateUtils类
+ * 日期工具类,继承org.apache.commons.lang3.time.DateUtils类
  *
  * @author liyang
  * @version 2019-01-18
