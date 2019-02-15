@@ -42,7 +42,7 @@ public class MiAiSmallEvHandeImpl implements SmallEvHande {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        redisRepository.init(2);
+        redisRepository.init(1);
         ALLVehicleState allVehicleState = (ALLVehicleState)redisRepository.get("NISSAN0000000000");
         if(allVehicleState!=null){
 

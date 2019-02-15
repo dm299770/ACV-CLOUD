@@ -92,6 +92,7 @@ public class VehicleController {
     @ResponseBody
     @RequestMapping(value = "/unbindVehicle")
     public Object unbindVehicle(@CurrentUser UserInfo user, @RequestBody VehicleInfoData vehicleInfoData) {
+
         JSONObject jsonObject = null;
         if (user != null) {
             if (vehicleInfoData != null && !vehicleInfoData.getPlateNum().equals("")) {
@@ -106,7 +107,6 @@ public class VehicleController {
             jsonObject.put(AppResultConstants.MSG, AppResultConstants.LOGIN_ERROR);
             jsonObject.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
         }
-
 
         return jsonObject;
     }

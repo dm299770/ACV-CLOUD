@@ -34,7 +34,7 @@ public class AccountController {
     @LoginRequired
     @ResponseBody
     @RequestMapping(value = "/deduct", method = RequestMethod.POST)
-    public Object deduct( @RequestBody AccountBody money) {
+    public Object deduct(@RequestBody AccountBody money) {
         UserInfo user = money.getUserInfo();
         String user_id = user.getUserId();
         JSONObject jsonObject = accountService.deduct(user_id, money.getMoney());

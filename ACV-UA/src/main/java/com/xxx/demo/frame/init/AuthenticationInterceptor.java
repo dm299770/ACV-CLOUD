@@ -21,11 +21,15 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.util.Map;
 
@@ -64,17 +68,34 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             //String accessToken = request.getParameter(ACCESS_TOKEN);
             //UserInfo user =  (UserInfo)request.getAttribute(CurrentUserConstants.CURRENT_USER);
             UserInfo user = null ;
-            try {
-                InputStream in = request.getInputStream();
-                String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
-                if(StringUtils.isNotBlank(body)){
-                    JSONObject jsonObject = JSON.parseObject(body);
-                    user =  JSON.parseObject(jsonObject.getJSONObject(CurrentUserConstants.CURRENT_USER).toJSONString(),UserInfo.class);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
+//            try {
+//                InputStream in = request.getInputStream();
+//                String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
+//                if(StringUtils.isNotBlank(body)){
+//                    JSONObject jsonObject = JSON.parseObject(body);
+//                    user =  JSON.parseObject(jsonObject.getJSONObject(CurrentUserConstants.CURRENT_USER).toJSONString(),UserInfo.class);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
+
+            //zuul HEADER 传递中文处理乱码问题
+            String userJsonStr = request.getHeader("zuul_userInfo");
+            if(StringUtils.isNotBlank(userJsonStr)){
+                //user = JSON.parseObject(userJsonStr,UserInfo.class);
+
+                try {
+                    user = JSON.parseObject(URLDecoder.decode(userJsonStr, "UTF-8"),UserInfo.class);
+                    //解码
+                    }
+                    catch (UnsupportedEncodingException var4) {
+                    var4.printStackTrace();
+                }
+
+
+            }
 
             if (user == null) {
                 //throw new RuntimeException("用户不存在，请重新登录");
@@ -82,6 +103,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             }
             // 当前登录用户@CurrentUser
             request.setAttribute(CurrentUserConstants.CURRENT_USER, user);
+
+
             return true;
         } else {
             return true;

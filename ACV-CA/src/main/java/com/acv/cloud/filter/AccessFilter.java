@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.Map;
 @Component
@@ -96,37 +98,47 @@ public class AccessFilter extends ZuulFilter
                     // 当前登录用户@CurrentUser
                     request.setAttribute(CurrentUserConstants.CURRENT_USER, userInfo);
                     logger.info("CurrentUser is logining userid :{}",uuid);
+                    try {
+                        ctx.addZuulRequestHeader("zuul_userInfo", URLEncoder.encode(JSON.toJSONString(userInfo),"UTF-8"));
+                    } catch (UnsupportedEncodingException e) {
+                        logger.warn("----------------->userInfo encoder exception!");
+                        e.printStackTrace();
+                    }
+                    //ctx.addZuulRequestHeader("Content-type", "application/json; charset=utf-8");
+
                     //另外在request中虽然可以setAttribute（），但是可能由于作用域（request）的不同，一台服务器才能getAttribute（）出来，
                     //在这里设置的Attribute在后续的微服务中是获取不到的，因此必须考虑另外的方式：get方法和其他方法处理方式不同，post和put
                     //需重写HttpServletRequestWrapper，即获取请求的输入流，重写json参数，传入重写构造上下文中的request中。
 
-                    try {
-                        InputStream in = ctx.getRequest().getInputStream();
-                        String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
-                        if(StringUtils.isBlank(body)){
-                            body = "{}";
-                        }
-                        JSONObject jsonObject = JSON.parseObject(body);
-                        jsonObject.put(CurrentUserConstants.CURRENT_USER, userInfo);
-                        String newBody = jsonObject.toString();
-                        final byte[] reqBodyBytes = newBody.getBytes();
-                        ctx.setRequest(new HttpServletRequestWrapper(request){
-                            @Override
-                            public ServletInputStream getInputStream() throws IOException {
-                                return new ServletInputStreamWrapper(reqBodyBytes);
-                            }
-                            @Override
-                            public int getContentLength() {
-                                return reqBodyBytes.length;
-                            }
-                            @Override
-                            public long getContentLengthLong() {
-                                return reqBodyBytes.length;
-                            }
-                        });
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//                        InputStream in = ctx.getRequest().getInputStream();
+//                        String body = StreamUtils.copyToString(in, Charset.forName("UTF-8"));
+//                        if(StringUtils.isBlank(body)){
+//                            body = "{}";
+//                        }
+//                        JSONObject jsonObject = JSON.parseObject(body);
+//                        jsonObject.put(CurrentUserConstants.CURRENT_USER, userInfo);
+//                        String newBody = jsonObject.toString();
+//                        final byte[] reqBodyBytes = newBody.getBytes();
+//                        ctx.setRequest(new HttpServletRequestWrapper(request){
+//                            @Override
+//                            public ServletInputStream getInputStream() throws IOException {
+//                                return new ServletInputStreamWrapper(reqBodyBytes);
+//                            }
+//                            @Override
+//                            public int getContentLength() {
+//                                return reqBodyBytes.length;
+//                            }
+//                            @Override
+//                            public long getContentLengthLong() {
+//                                return reqBodyBytes.length;
+//                            }
+//                        });
+//
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
 
                 }
 
