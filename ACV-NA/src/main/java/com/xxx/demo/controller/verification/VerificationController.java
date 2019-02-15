@@ -79,7 +79,7 @@ public class VerificationController {
 //            }
 //        }, 5 * 60 * 1000);
 
-        ScheduledExecutorService scheduExec;
+        final ScheduledExecutorService scheduExec;
         scheduExec =  Executors.newScheduledThreadPool(2);
         scheduExec.schedule(new Runnable() {
             public void run() {

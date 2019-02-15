@@ -88,7 +88,7 @@ public class VerificationController {
             public void run() {
                 // 删除session中存的验证码
                 session.removeAttribute(attrName);
-                scheduExec.shutdown();
+//                scheduExec.shutdown();
             }
         }, 5 * 1000 * 60, TimeUnit.MILLISECONDS);
     }

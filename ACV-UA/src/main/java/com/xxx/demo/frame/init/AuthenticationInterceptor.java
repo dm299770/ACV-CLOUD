@@ -89,8 +89,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 try {
                     user = JSON.parseObject(URLDecoder.decode(userJsonStr, "UTF-8"),UserInfo.class);
                     //解码
-                    }
-                    catch (UnsupportedEncodingException var4) {
+                }
+                catch (UnsupportedEncodingException var4) {
                     var4.printStackTrace();
                 }
 
