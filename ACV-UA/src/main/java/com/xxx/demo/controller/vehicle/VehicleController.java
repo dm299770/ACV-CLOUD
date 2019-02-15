@@ -95,9 +95,10 @@ public class VehicleController {
 
         JSONObject jsonObject = null;
         if (user != null) {
-            if (vehicleInfoData != null && !vehicleInfoData.getPlateNum().equals("")) {
+            if (vehicleInfoData != null && !"".equals(vehicleInfoData.getVin())) {
                 String plateNum = vehicleInfoData.getPlateNum();
-                jsonObject = vehicleServiceImpl.updateVehicle(user.getUserId(), plateNum);
+                String vin = vehicleInfoData.getVin();
+                jsonObject = vehicleServiceImpl.updateVehicle(user.getUserId(), vin);
             } else {
                 jsonObject.put(AppResultConstants.MSG, AppResultConstants.Paramer_ERROR);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);
@@ -125,7 +126,8 @@ public class VehicleController {
         if (user != null) {
             if (vehicleInfoData != null && !vehicleInfoData.getPlateNum().equals("")) {
                 String plateNum = vehicleInfoData.getPlateNum();
-                jsonObject = vehicleServiceImpl.setDefaultVehicle(user.getUserId(), plateNum);
+                String vin = vehicleInfoData.getVin();
+                jsonObject = vehicleServiceImpl.setDefaultVehicle(user.getUserId(), vin);
             } else {
                 jsonObject.put(AppResultConstants.MSG, AppResultConstants.Paramer_ERROR);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.ERROR_STATUS);

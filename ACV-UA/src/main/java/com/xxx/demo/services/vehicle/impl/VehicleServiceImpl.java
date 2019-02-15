@@ -76,7 +76,7 @@ public class VehicleServiceImpl implements VehicleService {
 
             if (trUserVin != null) {//验证车辆不能为空
                 //验证车牌唯一性
-                TrUserVin vehicle = vehicleMapper.findVehicleByPlateNum(trUserVin.getPlateNum());
+                TrUserVin vehicle = vehicleMapper.findVehicleByVin(trUserVin.getPlateNum());
                 if (vehicle != null) {
                     jsonObject.put(AppResultConstants.MSG, VEHICLE_IS_EXIST);
                     jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
@@ -112,33 +112,33 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public JSONObject updateVehicle(String userId, String plateNum) {
+    public JSONObject updateVehicle(String userId, String vin) {
         JSONObject jsonObject = new JSONObject();
 
         try {
             //验证车牌唯一性
             List<TrUserVin> vehicles = vehicleMapper.findById(userId);
-            TrUserVin vehicle = vehicleMapper.findVehicleByPlateNum(plateNum);
+            TrUserVin vehicle = vehicleMapper.findVehicleByVin(vin);
             if (vehicle != null) {
                 if (vehicle.getDefaultVehicle() == 1 && vehicles.size() > 1) {
                     //默认车辆,且绑定车辆数大于1
                     jsonObject.put(AppResultConstants.MSG, UNBIND_ISNOT_DEFAULT);
                     jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
-                    logger.info(plateNum + "解绑失败,多辆绑定车辆不能解绑默认车辆");
+                    logger.info(vin + "解绑失败,多辆绑定车辆不能解绑默认车辆");
 
                 } else {
                     //车牌存在,且不是默认车辆
-                    vehicleMapper.unbindTrUserVin(userId, plateNum);
+                    vehicleMapper.unbindTrUserVin(userId, vin);
                     jsonObject.put(AppResultConstants.MSG, UNBIND_VEHICLE_SUCCESS);
                     jsonObject.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
-                    logger.info(plateNum + "解绑成功");
+                    logger.info(vin + "解绑成功");
                 }
 
             } else {
                 //车辆不存在
                 jsonObject.put(AppResultConstants.MSG, VEHICLE_ISNOT_EXIST);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
-                logger.info(plateNum + "信息不存在");
+                logger.info(vin + "信息不存在");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,7 +154,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, timeout = 36000, rollbackFor = Exception.class)
-    public JSONObject setDefaultVehicle(String userId, String plateNum) {
+    public JSONObject setDefaultVehicle(String userId, String vin) {
         JSONObject jsonObject = new JSONObject();
         try {
 
@@ -162,15 +162,15 @@ public class VehicleServiceImpl implements VehicleService {
             if (vehicles != null) {
                 //用户车辆组存在
                 vehicleMapper.clearDefaultVehicle(userId);//清除所有默认车辆
-                vehicleMapper.setDefaultVehicle(userId, plateNum, binding);
+                vehicleMapper.setDefaultVehicle(userId, vin, binding);
                 jsonObject.put(AppResultConstants.MSG, SET_DEFAULT_SUCCESS);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
-                logger.info(plateNum + "设置默认车辆成功");
+                logger.info(vin + "设置默认车辆成功");
             } else {
                 //车辆不存在
                 jsonObject.put(AppResultConstants.MSG, VEHICLE_ISNOT_EXIST);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
-                logger.info(plateNum + "信息不存在");
+                logger.info(vin + "信息不存在");
             }
         } catch (Exception e) {
             e.printStackTrace();

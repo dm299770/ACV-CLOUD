@@ -144,16 +144,14 @@ public class UserController {
         JSONObject jsonObject = null;
         String type = userInfoRequsetBody.getType();
         String value = userInfoRequsetBody.getValue();
-        //@CurrentUser
-        //@RequestParam(value="type")
-        //UserInfo user = null;
+
         if (user == null) {
             jsonObject.put(AppResultConstants.MSG, AppResultConstants.LOGIN_ERROR);
             jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
         } else {
             logger.info(user.getPhoneNum());
             logger.info("registeredUser:phoneNum:" + user.getPhoneNum() + ",type:" + type + ",value:" + value);
-            jsonObject = tsUserServices.modifyUserInfo(user.getPhoneNum(), type, value);
+            jsonObject = tsUserServices.modifyUserInfo(user.getUserId(), type, value);
         }
         return jsonObject;
     }
