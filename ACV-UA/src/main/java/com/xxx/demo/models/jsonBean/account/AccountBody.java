@@ -1,10 +1,9 @@
 package com.xxx.demo.models.jsonBean.account;
 
-import com.xxx.demo.dto.sys.UserInfo;
 
 public class AccountBody {
-    UserInfo CurrentUser;
     String money;
+    String comment;//订单号
 
     public String getMoney() {
         return money;
@@ -14,11 +13,11 @@ public class AccountBody {
         this.money = money;
     }
 
-    public UserInfo getUserInfo() {
-        return CurrentUser;
+    public String getComment() {
+        return comment;
     }
 
-    public void setUserInfo(UserInfo userInfo) {
-        this.CurrentUser = userInfo;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

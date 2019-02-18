@@ -1,9 +1,11 @@
 package com.xxx.demo.mapper.account;
 
+import com.xxx.demo.models.jsonBean.account.TtChargeFlow;
 import com.xxx.demo.models.jsonBean.account.UserAccount;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
+import java.util.List;
 
 public interface AccountMapper {
 
@@ -13,5 +15,12 @@ public interface AccountMapper {
 
     void saveChargeFlow(@Param("id") String id, @Param("userAccount") String userAccount,
                         @Param("amount") Double moneyD, @Param("direction") Integer direction,
-                        @Param("chargeDate") Date updateTime, @Param("chargeFrom") String phoneNum, @Param("chargeTo") String chargeTo);
+                        @Param("chargeDate") Date updateTime, @Param("chargeFrom") String phoneNum,
+                        @Param("chargeTo") String chargeTo, @Param("comment") String comment);
+
+    List<TtChargeFlow> selectAll(@Param("userAccount") String user_id);
+
+    TtChargeFlow selOrderNum(@Param("comment") String comment);
+
+    UserAccount selBalance(@Param("userAccount") String user_id);
 }
