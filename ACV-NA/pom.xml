@@ -227,7 +227,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxx.demo.Application</mainClass>
+                    <mainClass>com.acv.cloud.Application</mainClass>
                 </configuration>
             </plugin>
             <plugin>
