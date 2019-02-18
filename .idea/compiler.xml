@@ -14,24 +14,23 @@
         <module name="ACV-VA" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="ACV-CA" target="1.8" />
-      <module name="acv-ca" target="1.7" />
-      <module name="ACV-CLOUD" target="1.7" />
-      <module name="ACV-EUREKA" target="1.7" />
-      <module name="ACV-NA" target="1.7" />
-      <module name="ACV-UA" target="1.7" />
-      <module name="ACV-VA" target="1.7" />
+      <module name="acv-ca" target="1.8" />
+      <module name="ACV-CLOUD" target="1.8" />
+      <module name="ACV-EUREKA" target="1.8" />
+      <module name="ACV-NA" target="1.8" />
+      <module name="ACV-UA" target="1.8" />
+      <module name="ACV-VA" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ACV-CA" options="" />
-      <module name="ACV-EUREKA" options="-parameters" />
-      <module name="ACV-NA" options="-parameters" />
-      <module name="ACV-UA" options="-parameters" />
-      <module name="ACV-VA" options="-parameters" />
-      <module name="acv-ca" options="-parameters" />
+      <module name="ACV-EUREKA" options="" />
+      <module name="ACV-NA" options="" />
+      <module name="ACV-UA" options="" />
+      <module name="ACV-VA" options="" />
     </option>
   </component>
 </project>

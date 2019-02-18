@@ -1,5 +1,5 @@
 import com.bcloud.msg.http.HttpSender;
-import com.xxx.demo.frame.util.SMSUtil;
+import com.acv.cloud.frame.util.SMSUtil;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
@@ -16,7 +16,7 @@ public class FileUtil {
     @Test
     public void test() {
         String filename = "123.png";
-        System.out.println("---:" + com.xxx.demo.frame.util.FileUtil.getTypePart(filename));
+        System.out.println("---:" + com.acv.cloud.frame.util.FileUtil.getTypePart(filename));
         ;
     }
 

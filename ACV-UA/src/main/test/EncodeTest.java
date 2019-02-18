@@ -1,4 +1,4 @@
-import com.xxx.demo.frame.util.MD5Util;
+import com.acv.cloud.frame.util.MD5Util;
 import org.junit.Test;
 
 public class EncodeTest {

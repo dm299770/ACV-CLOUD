@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xxx.demo.mapper.oauth.OAuthMapper">
+<mapper namespace="com.acv.cloud.mapper.oauth.OAuthMapper">
 
     <insert id="addRefreshToken" parameterType="Map">
         <selectKey keyProperty="count" resultType="int" order="BEFORE">
@@ -50,7 +50,7 @@
         WHERE REFRESHTOKEN = #{REFRESHTOKEN}
     </select>
 
-    <select id="findUserByPhoneNum" resultType="com.xxx.demo.models.sys.TsUser">
+    <select id="findUserByPhoneNum" resultType="com.acv.cloud.models.sys.TsUser">
         select USER_ID as "userId",
         PHONE_NUM as "phoneNum",
         PASSWORD as "password",
