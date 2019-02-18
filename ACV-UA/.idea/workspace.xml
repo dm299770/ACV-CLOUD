@@ -2,155 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df5e6fb4-7cf6-4476-918d-90d352a1213e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_config_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_unknown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/ACV-CLOUD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/ACV-CLOUD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACV-NA/ACV-NA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ACV-NA/ACV-NA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ACV-UA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ACV-UA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-09-25/2018-09-25.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-09-26/2018-09-26.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-09-28/2018-09-28.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-08/2018-10-08.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-09/2018-10-09.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-11/2018-10-11.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-12/2018-10-12.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-15/2018-10-15.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-16/2018-10-16.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-17/2018-10-17.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-18/2018-10-18.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-19/2018-10-19.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-22/2018-10-22.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-23/2018-10-23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-24/2018-10-24.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-25/2018-10-25.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-26/2018-10-26.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-31/2018-10-31.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-11-15/2018-11-15.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-11-23/2018-11-23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-11-29/2018-11-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-11/2018-12-11.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-14/2018-12-14.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-17/2018-12-17.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-18/2018-12-18.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-19/2018-12-19.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-21/2018-12-21.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-12-25/2018-12-25.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2019-01-03/2019-01-03.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/account/AccountController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/home/NotFoundController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/home/homeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/login/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/login/LogoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/mpcv/MpCvController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/oauth/AuthorizeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/oauth/CheckoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/oauth/Handler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/oauth/TokenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/smartSpeaker/RequestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/test/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/user/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/vehicle/VehicleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/controller/verification/VerificationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/dto/sys/UserInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/exception/LoginRequiredException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/annotation/CurrentUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/annotation/LoginRequired.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/AppResultConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/ApplicationPropertiesConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/CurrentUserConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/DataFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/OauthConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/constants/PackageConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/AuthenticationInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/CurrentUserMethodArgumentResolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/FastJsonHttpMessageConverterEx.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/MongoConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/init/WebMvcConfigurer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/FileUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/HttpUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/JsonUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/JwtTokenUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/MD5Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/ResponseUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/SMSUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/TokenUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/frame/util/VcUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/account/AccountMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/oauth/OAuthMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/sys/SysUserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/user/TsUserInfoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/user/TsUserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/mapper/vehicle/VehicleMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/account/AccountBody.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/account/TtChargeFlow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/account/UserAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/login/LoginData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/oauth/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/oauth/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/IntentModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/TaskRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/TaskResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/mi/MiIntentModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/mi/MiTaskRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/smartSpeaker/mi/MiTaskResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/user/UserInfoData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/user/UserInfoRequsetBody.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/vehicle/VehicleInfoData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/vehicle/status/ALLVehicleState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/vehicle/status/Tirepressure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/vehicle/status/VehicleCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/jsonBean/vehicle/status/WindowStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/mongdb/MpCv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/sys/SysUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/sys/TmChargeAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/sys/TsUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/sys/TsUserInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/models/vehicle/TrUserVin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/MpCvRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/mongotemplate/IPublicDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/mongotemplate/impl/PublicDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/redistemplate/IUserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/redistemplate/RedisRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/redistemplate/component/FastJsonRedisSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/redistemplate/component/RedisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/repository/redistemplate/impl/UserDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/account/AccountService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/account/impl/AccountServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/login/LoginService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/login/impl/LoginServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/mpcv/MpCvService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/mpcv/impl/MpCvServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/oauth/OAuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/oauth/impl/OAuthServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/smartSpeaker/SmallEvHande.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/smartSpeaker/impl/MiAiSmallEvHandeImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/smartSpeaker/impl/SmallEvHandelimpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/user/SysUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/user/TsUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/user/impl/SysUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/user/impl/TsUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/vehicle/VehicleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/vehicle/impl/VehicleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/verification/VerificationCodeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxx/demo/services/verification/impl/VerificationCodeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/OauthMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/OauthMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SysUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TsUserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TsUserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TsUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TsUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/VehicleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/VehicleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/EncodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/EncodeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/RedisTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/AccountMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="319">
-              <caret line="20" column="70" lean-forward="true" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+              <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -322,7 +176,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550473491593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550473747145" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -357,15 +211,16 @@
       <option name="presentableId" value="Default" />
       <updated>1547545648675</updated>
       <workItem from="1547545650258" duration="245000" />
-      <workItem from="1550472968986" duration="511000" />
+      <workItem from="1550472968986" duration="764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1830000" />
+    <option name="totallyTimeSpent" value="2083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1236089" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -444,7 +299,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/AccountMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
-          <caret line="20" column="70" lean-forward="true" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
         </state>
       </provider>
     </entry>
