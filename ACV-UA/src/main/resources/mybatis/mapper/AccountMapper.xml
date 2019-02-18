@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.xxx.demo.mapper.account.AccountMapper">
+<mapper namespace="com.acv.cloud.mapper.account.AccountMapper">
 
-      <resultMap id="BaseResultMap" type="com.xxx.demo.models.jsonBean.account.UserAccount">
+      <resultMap id="BaseResultMap" type="com.acv.cloud.models.jsonBean.account.UserAccount">
           <id column="USER_ACCOUNT" property="userAccount" jdbcType="VARCHAR"/>
           <id column="BALANCE" property="balance" jdbcType="VARCHAR"/>
           <id column="CREATE_TIME" property="createTime" jdbcType="DATE"/>
           <id column="UPDATE_TIME" property="updateTime" jdbcType="DATE"/>
       </resultMap>
 
-      <resultMap id="TtChargeFlowResultMap" type="com.xxx.demo.models.jsonBean.account.TtChargeFlow">
+      <resultMap id="TtChargeFlowResultMap" type="com.acv.cloud.models.jsonBean.account.TtChargeFlow">
           <id column="ID" property="id" jdbcType="VARCHAR"/>
           <id column="USER_ACCOUNT" property="userAccount" jdbcType="VARCHAR"/>
           <id column="CHARGE_DATE" property="chargeDate" jdbcType="DATE"/>
