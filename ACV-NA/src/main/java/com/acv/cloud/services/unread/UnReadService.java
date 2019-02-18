@@ -1,0 +1,12 @@
+package com.acv.cloud.services.unread;
+
+import com.acv.cloud.models.mongdb.notification.Notification;
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * Created by liyang on 2019/01/10.
+ */
+public interface UnReadService {
+
+    JSONObject updateUnRead(Notification no);
+}
