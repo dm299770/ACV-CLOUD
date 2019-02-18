@@ -52,12 +52,12 @@
         <include refid="tableName"/>
 
         <trim prefix="SET" suffixOverrides=",">
-            <if test="plateNum!=null and plateNum!=''">
+            <if test="vin!=null and vin!=''">
                 IS_EFFCTIVE = 0 , UNBINDING_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d %H:%m:%s')
             </if>
         </trim>
         WHERE
-        PLATE_NUM = #{plateNum}
+        VIN = #{vin}
         and IS_EFFCTIVE = 1
         and USER_ID = #{userId}
     </update>
@@ -67,12 +67,12 @@
         <include refid="tableName"/>
 
         <trim prefix="SET" suffixOverrides=",">
-            <if test="plateNum!=null and plateNum!=''">
+            <if test="vin!=null and vin!=''">
                 DEFAULT_VEHICLE = ${defaultVehicle}
             </if>
         </trim>
         WHERE
-        PLATE_NUM = #{plateNum}
+        VIN = #{vin}
         and IS_EFFCTIVE = 1
         and USER_ID = #{userId}
     </update>
@@ -92,12 +92,12 @@
         and USER_ID = #{userId}
     </update>
 
-    <select id="findVehicleByPlateNum" resultMap="BaseResultMap">
+    <select id="findVehicleByVin" resultMap="BaseResultMap">
         select
         <include refid="baseColumns"/>
         from
         <include refid="tableName"/>
-        where PLATE_NUM= #{plateNum} and IS_EFFCTIVE = 1
+        where VIN= #{vin} and IS_EFFCTIVE = 1
     </select>
 
 

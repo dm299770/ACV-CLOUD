@@ -75,11 +75,11 @@ public interface TsUserService {
     /**
      * 更新用户属性（每次更新一项）
      *
-     * @param phoneNum 要修改手机号
+     * @param userId   用户id
      * @param type     要修改的属性名
      * @param value    要修改的属性值
      */
-    void updateUserInfo(String phoneNum, String type, String value);
+    void updateUserInfo(String userId, String type, String value);
 //
 //    /**
 //     * 修改用户密码
@@ -129,12 +129,12 @@ public interface TsUserService {
     /**
      * 更新用户信息
      *
-     * @param phoneNum 用户号码
+     * @param userId   用户id
      * @param type     需要修改的属性名
      * @param value    修改后的值
      * @return 返回信息
      */
-    JSONObject modifyUserInfo(String phoneNum, String type, String value);
+    JSONObject modifyUserInfo(String userId, String type, String value);
 
     /**
      * 更新用户密码

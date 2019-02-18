@@ -24,12 +24,12 @@ public interface VehicleService {
     /**
      * 解绑车辆
      */
-    JSONObject updateVehicle(String userId, String plateNum);
+    JSONObject updateVehicle(String userId, String vin);
 
     /**
      * 设置默认车辆
      */
-    JSONObject setDefaultVehicle(String userId, String plateNum);
+    JSONObject setDefaultVehicle(String userId, String vin);
 
 
 }

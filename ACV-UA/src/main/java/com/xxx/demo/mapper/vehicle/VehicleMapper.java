@@ -35,9 +35,9 @@ public interface VehicleMapper {
     /***
      * 根据userId解绑车辆
      * @param userId
-     * @param plateNum
+     * @param vin
      */
-    void unbindTrUserVin(@Param("userId") String userId, @Param("plateNum") String plateNum);
+    void unbindTrUserVin(@Param("userId") String userId, @Param("vin") String vin);
 
     /**
      * 根据车牌号设置默认车辆
@@ -56,11 +56,11 @@ public interface VehicleMapper {
     void clearDefaultVehicle(@Param("userId") String userId);
 
     /**
-     * 根据车牌号获取车辆信息
+     * 根据vin号获取车辆信息
      *
-     * @param plateNum
+     * @param vin
      */
-    TrUserVin findVehicleByPlateNum(@Param("plateNum") String plateNum);
+    TrUserVin findVehicleByVin(@Param("vin") String vin);
 
 
 }

@@ -68,6 +68,8 @@ public class TsUserServiceImpl implements TsUserService {
     @Autowired
     private ApplicationPropertiesConstants applicationConstants;
 
+    private final String[] typeArray = {"NICK_NAME", "REAL_NAME", "SEXUAL", "EMEY_CONTACT", "PROFILE_PHOTO","PHONE_NUM"};//属性值必须包含于这4项
+
 
     @Override
     public TsUser findById(String id) {
@@ -111,8 +113,8 @@ public class TsUserServiceImpl implements TsUserService {
 
 
     @Override
-    public void updateUserInfo(String phoneNum, String type, String value) {
-        tsUserInfoMapper.updateByType(phoneNum, type, value);
+    public void updateUserInfo(String userId, String type, String value) {
+        tsUserInfoMapper.updateByType(userId, type, value);
     }
 
     @Override
@@ -249,15 +251,15 @@ public class TsUserServiceImpl implements TsUserService {
     }
 
     @Override
-    public JSONObject modifyUserInfo(String phoneNum, String type, String value) {
+    public JSONObject modifyUserInfo(String userId, String type, String value) {
         JSONObject jsonObject = new JSONObject();
-        String[] typeArray = {"NICK_NAME", "REAL_NAME", "SEXUAL", "EMEY_CONTACT", "PROFILE_PHOTO"};//属性值必须包含于这4项
+
         List<String> typeList = Arrays.asList(typeArray);
         // 1.校验参数合法性
-        if (null == phoneNum || "".equalsIgnoreCase(phoneNum)) {
+       /* if (null == phoneNum || "".equalsIgnoreCase(phoneNum)) {
             jsonObject.put(AppResultConstants.MSG, CELL_PHONE_ERROR);
             jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
-        } else if (null == type || "".equalsIgnoreCase(type)) {
+        } else*/ if (null == type || "".equalsIgnoreCase(type)) {
             jsonObject.put(AppResultConstants.MSG, TYPE_ERROR);
             jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
         } else if (!typeList.contains(type)) {
@@ -266,7 +268,7 @@ public class TsUserServiceImpl implements TsUserService {
         } else {
             // 更新用户信息
             try {
-                updateUserInfo(phoneNum, type, value);
+                updateUserInfo(userId, type, value);
                 jsonObject.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                 jsonObject.put(AppResultConstants.MSG, MODIFY_SUCCESS);
             } catch (Exception e) {
