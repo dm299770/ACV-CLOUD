@@ -68,7 +68,8 @@ public class TsUser implements java.io.Serializable {
 //        this.phoneNum = phoneNum;
 //        this.password = password;
 //        this.isEffctive = isEffctive;
-//        this.createTime = createTime;
+//        this.createDate=createTime;
+//
 //        this.token = token;
 //    }
 }

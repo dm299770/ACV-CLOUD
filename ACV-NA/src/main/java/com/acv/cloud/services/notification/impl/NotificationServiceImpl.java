@@ -1,10 +1,10 @@
 package com.acv.cloud.services.notification.impl;
 
 import com.acv.cloud.frame.constants.AppResultConstants;
-import com.acv.cloud.mapper.user.TsUserMapper;
+import com.acv.cloud.mapper.TsUserMapper;
 import com.acv.cloud.models.mongdb.notification.Notification;
-import com.acv.cloud.models.sys.TsUser;
 import com.acv.cloud.frame.util.DateUtil;
+import com.acv.cloud.models.sys.TsUser;
 import com.acv.cloud.repository.mongotemplate.INotificationMongoDBDao;
 import com.acv.cloud.repository.redistemplate.INotificationDao;
 import com.acv.cloud.services.notification.NotificationService;

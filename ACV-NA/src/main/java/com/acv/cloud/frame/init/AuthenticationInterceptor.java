@@ -5,7 +5,6 @@ import com.acv.cloud.dto.sys.UserInfo;
 import com.acv.cloud.exception.LoginRequiredException;
 import com.acv.cloud.frame.annotation.LoginRequired;
 import com.acv.cloud.frame.constants.CurrentUserConstants;
-import com.acv.cloud.services.user.TsUserService;
 import com.acv.cloud.frame.util.TokenUtils;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +22,11 @@ import java.lang.reflect.Method;
  */
 public class AuthenticationInterceptor implements HandlerInterceptor {
     public final static String ACCESS_TOKEN = "accessToken";
-    //@Autowired
-    //private SysUserService userService;
-    @Autowired
-    private TsUserService tsUserService;
+
+//    @Autowired
+//    private TsUserService tsUserService;
 
     /**
-     *
      * 在请求处理之前进行调用（Controller方法调用之前）
      *
      * @param request
@@ -58,43 +55,42 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             }
             Claims claims = TokenUtils.parseJWT(accessToken);
             String phoneNum = claims.getId();
-            UserInfo user = tsUserService.findEffctiveUserInfoByPhoneNum(phoneNum);
-            if (user == null) {
+//            UserInfo user = tsUserService.findEffctiveUserInfoByPhoneNum(phoneNum);
+            if (phoneNum == null) {
                 //throw new RuntimeException("用户不存在，请重新登录");
                 throw new LoginRequiredException("用户不存在，请重新登录");
             }
             // 当前登录用户@CurrentUser
-            request.setAttribute(CurrentUserConstants.CURRENT_USER, user);
+//            request.setAttribute(CurrentUserConstants.CURRENT_USER, user);
             return true;
-        }else{
+        } else {
             return true;
         }
     }
-
-    /**
-     * 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）
-     *
-     * @param httpServletRequest
-     * @param httpServletResponse
-     * @param o
-     * @param modelAndView
-     */
-    @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
-
-    }
-
-    /**
-     * 在整个请求结束之后被调用，也就是在DispatcherServlet 渲染了对应的视图之后执行（主要是用于进行资源清理工作）
-     *
-     * @param httpServletRequest
-     * @param httpServletResponse
-     * @param o
-     * @param e
-     */
-    @Override
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
-
-    }
-
+//
+//    /**
+//     * 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）
+//     *
+//     * @param httpServletRequest
+//     * @param httpServletResponse
+//     * @param o
+//     * @param modelAndView
+//     */
+//    @Override
+//    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
+//
+//    }
+//
+//    /**
+//     * 在整个请求结束之后被调用，也就是在DispatcherServlet 渲染了对应的视图之后执行（主要是用于进行资源清理工作）
+//     *
+//     * @param httpServletRequest
+//     * @param httpServletResponse
+//     * @param o
+//     * @param e
+//     */
+//    @Override
+//    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
+//
 }
+

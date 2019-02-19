@@ -33,8 +33,6 @@ public class AliSmartEvHandleImpl implements AliSmartEvHandle {
         String returnCode = "-1";//失败
         ExecuteCode executeCode = ExecuteCode.PARAMS_ERROR;
 
-//        String intentParameterName = taskRequest.getIntentParameterName();//意图参数名
-//        String standardValue = taskRequest.getStandardValue();//原始slot归一化后的值？？？？
         redisRepository.init(1);
 
         AliTaskResponse aliTaskResponse = new AliTaskResponse(returnCode, reply, executeCode);
@@ -157,14 +155,14 @@ public class AliSmartEvHandleImpl implements AliSmartEvHandle {
 //            }else{
 //                //cache中没有当前会话意图链,如何处理?
 //                aliTaskResponse.setReply("我还不够聪明,不能确定您询问什么");
-////                miTaskResponse.setOpen_mic(false);
-////                miTaskResponse.setIs_session_end(true);
+//                miTaskResponse.setOpen_mic(false);
+//                miTaskResponse.setIs_session_end(true);
 //            }
 
 //        }else{
 //            aliTaskResponse.setReply("当前会话出现异常,请重新描述您的指令");
-////            miTaskResponse.setOpen_mic(false);
-////            miTaskResponse.setIs_session_end(true);
+//            miTaskResponse.setOpen_mic(false);
+//            miTaskResponse.setIs_session_end(true);
 //        }
         return aliTaskResponse;
     }

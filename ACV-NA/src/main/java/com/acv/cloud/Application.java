@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 // mapper.java扫描
-@MapperScan("com.xxx.demo.mapper")
+@MapperScan("com.acv.cloud.mapper")
 @EnableTransactionManagement //如果mybatis中service实现类中加入事务注解，需要此处添加该注解
 //@EnableAsync(proxyTargetClass = true)    //配置代理为cglib代理，默认使用 的是jdk动态代理
 @EnableEurekaClient
