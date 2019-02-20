@@ -1,5 +1,6 @@
 package com.acv.cloud.controller.account;
 
+import com.acv.cloud.frame.constants.AppResultConstants;
 import com.alibaba.fastjson.JSONObject;
 import com.acv.cloud.dto.sys.UserInfo;
 import com.acv.cloud.frame.annotation.CurrentUser;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @description:账户
- * @author:@leo.
+ * PowerShare 接口
+ * Created by liyang
  */
 @Controller
-//@RequestMapping("/account")
+@RequestMapping("/account")
 public class AccountController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -30,14 +31,50 @@ public class AccountController {
     /**
      * 用户充电扣款
      */
-
     @LoginRequired
     @ResponseBody
     @RequestMapping(value = "/deduct", method = RequestMethod.POST)
-    public Object deduct(@RequestBody AccountBody money) {
-        UserInfo user = money.getUserInfo();
-        String user_id = user.getUserId();
-        JSONObject jsonObject = accountService.deduct(user_id, money.getMoney());
+    public Object deduct(@CurrentUser UserInfo user, @RequestBody AccountBody money) {
+        logger.info(user.toString());
+
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = accountService.deduct(user.getUserId(), money.getMoney(), money.getComment());
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
+            jsonObject.put(AppResultConstants.MSG, "操作回滚了");
+        }
+        logger.info("请求体" + money.toString());
+        return jsonObject;
+    }
+
+    /**
+     * 账单查询
+     *
+     * @return
+     */
+    @LoginRequired
+    @ResponseBody
+    @RequestMapping(value = "/selAll", method = RequestMethod.POST)
+    public Object selAll(@CurrentUser UserInfo user) {
+        logger.info(user.toString());
+        JSONObject jsonObject = accountService.selAll(user.getUserId());
+        return jsonObject;
+    }
+
+    /**
+     * 账户余额
+     *
+     * @param user
+     * @return
+     */
+    @LoginRequired
+    @ResponseBody
+    @RequestMapping(value = "/ ", method = RequestMethod.POST)
+    public Object selBalance(@CurrentUser UserInfo user) {
+        logger.info(user.toString());
+        JSONObject jsonObject = accountService.selBalance(user.getUserId());
         return jsonObject;
     }
 

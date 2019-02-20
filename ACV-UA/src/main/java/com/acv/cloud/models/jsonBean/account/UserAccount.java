@@ -9,9 +9,8 @@ public class UserAccount implements java.io.Serializable{
 
     private String userAccount; //用户关联ID
     private String balance;     //余额
-    private Date createTime;    //创建时间
-    private Date updateTime;    //修改时间
-
+    private String createTime;    //创建时间
+    private String updateTime;    //修改时间
 
     public String getUserAccount() {
         return userAccount;
@@ -29,19 +28,19 @@ public class UserAccount implements java.io.Serializable{
         this.balance = balance;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 }

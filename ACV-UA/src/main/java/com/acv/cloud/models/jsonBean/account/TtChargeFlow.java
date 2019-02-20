@@ -7,12 +7,12 @@ import java.util.Date;
 /**
  * 金额流水记录
  */
-public class TtChargeFlow implements java.io.Serializable{
+public class TtChargeFlow implements java.io.Serializable {
 
     private String id;          //流水单号
     private String userAccount; //关联用户id
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    private Date chargeDate;    //下单日期
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private String chargeDate;    //下单日期
     private String chargeFrom;  //发起方
     private String chargeTo;    //到达方
     private Integer direction;  //增减标识
@@ -35,13 +35,12 @@ public class TtChargeFlow implements java.io.Serializable{
         this.userAccount = userAccount;
     }
 
-    public Date getChargeDate() {
+    public String getChargeDate() {
         return chargeDate;
     }
 
-    public Date setChargeDate(Date chargeDate) {
+    public void setChargeDate(String chargeDate) {
         this.chargeDate = chargeDate;
-        return chargeDate;
     }
 
     public String getChargeFrom() {

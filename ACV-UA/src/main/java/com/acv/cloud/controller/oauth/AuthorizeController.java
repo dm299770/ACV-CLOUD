@@ -170,6 +170,7 @@ public class AuthorizeController {
             //出错处理
             return ResponseUtil.getAbnormalResponse(request.getParameter("client_id"), request.getParameter("response_type"), OauthConstants.INVALID_PARAMETER);
         }
+
     }
 
     private boolean login(HttpServletRequest request) {
