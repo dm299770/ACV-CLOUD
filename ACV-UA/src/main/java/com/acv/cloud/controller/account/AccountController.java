@@ -36,14 +36,13 @@ public class AccountController {
     @RequestMapping(value = "/deduct", method = RequestMethod.POST)
     public Object deduct(@CurrentUser UserInfo user, @RequestBody AccountBody money) {
         logger.info(user.toString());
-
         JSONObject jsonObject = null;
         try {
             jsonObject = accountService.deduct(user.getUserId(), money.getMoney(), money.getComment());
         } catch (Exception e) {
             e.printStackTrace();
             jsonObject.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
-            jsonObject.put(AppResultConstants.MSG, "操作回滚了");
+            jsonObject.put(AppResultConstants.MSG, "数据库操作失败，事物回滚了");
         }
         logger.info("请求体" + money.toString());
         return jsonObject;

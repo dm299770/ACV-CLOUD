@@ -10,7 +10,7 @@ public interface AccountService {
      * @param money   充电扣费
      * @return
      */
-    JSONObject deduct(String user_id, String money, String comment);
+    JSONObject deduct(String user_id, String money, String comment) throws Exception;
 
     /**
      * @param user_id 用户主键
