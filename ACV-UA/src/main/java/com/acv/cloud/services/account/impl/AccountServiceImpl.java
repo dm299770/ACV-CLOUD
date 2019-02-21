@@ -84,6 +84,8 @@ public class AccountServiceImpl implements AccountService {
                         accountMapper.upadteBalance(user_id, balance, updateTime);
                         //发起方查询
                         userInfo = tsUserMapper.findUserPhoneNum(user_id);
+
+                        accountMapper.saveChargeFlow(id, user_id, Double.valueOf(String.valueOf(moneyD)), direction, updateTime, userInfo.getPhoneNum(), CHARGETO, comment);
                         json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         json.put(AppResultConstants.MSG, DEDUCT_SUCCESS);
                         json.put(BALANCE, balance);
@@ -92,6 +94,7 @@ public class AccountServiceImpl implements AccountService {
                         accountMapper.upadteBalance(user_id, "0", updateTime);
                         //发起方查询
                         userInfo = tsUserMapper.findUserPhoneNum(user_id);
+                        accountMapper.saveChargeFlow(id, user_id, Double.valueOf(String.valueOf(moneyD)), direction, updateTime, userInfo.getPhoneNum(), CHARGETO, comment);
                         json.put(AppResultConstants.STATUS, AppResultConstants.SUCCESS_STATUS);
                         json.put(AppResultConstants.MSG, DEDUCT_SUCCESS);
                         json.put(BALANCE, balance);
@@ -101,10 +104,6 @@ public class AccountServiceImpl implements AccountService {
                         json.put(AppResultConstants.STATUS, AppResultConstants.FAIL_STATUS);
                         json.put(AppResultConstants.MSG, DEDUCT_FATL);
                         json.put(BALANCE, balance);
-                    }
-                    if (comTo != -1 || comTo != 0) {
-                        //扣费流水记录
-                        accountMapper.saveChargeFlow(id, user_id, Double.valueOf(String.valueOf(moneyD)), direction, updateTime, userInfo.getPhoneNum(), CHARGETO, comment);
                     }
                 }
             }
