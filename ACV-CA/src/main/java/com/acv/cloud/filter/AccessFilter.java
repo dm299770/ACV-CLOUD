@@ -68,7 +68,7 @@ public class AccessFilter extends ZuulFilter
         RequestContext ctx = RequestContext.getCurrentContext();
         String url = ctx.getRequest().getRequestURL().toString();
         //判断当前请求是否验证登录
-       return needCertification(url);
+        return needCertification(url);
     }
     /**
      * 过滤器执行具体内容
@@ -92,7 +92,7 @@ public class AccessFilter extends ZuulFilter
                 String uuid = map.get("id").toString();
                 UserInfo userInfo = null;
                 if (!StringUtils.isEmpty(uuid)) {
-                     userInfo = iTsUserServiceFeign.getUser(uuid);
+                    userInfo = iTsUserServiceFeign.getUser(uuid);
                 }
                 if(userInfo!=null){
                     // 当前登录用户@CurrentUser
