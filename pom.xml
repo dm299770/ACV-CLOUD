@@ -29,8 +29,9 @@
         <module>ACV-CA</module>
         <module>ACV-EUREKA</module>
         <module>ACV-UA</module>
-        <module>ACV-NA</module>
         <module>ACV-VA</module>
+        <module>atcc-serviceplatform-messageadapter</module>
+        <module>atcc-serviceplartform-b2badapter</module>
     </modules>
 
     <packaging>pom</packaging>

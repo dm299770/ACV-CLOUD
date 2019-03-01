@@ -22,17 +22,18 @@ zuul:
   routes:
     ACV-UA: /ACV-UA/**
       #面向服务路由
-      #customSensitiveHeaders: true
-      #sensitiveHeaders:
+    #customSensitiveHeaders: true
+    #sensitiveHeaders:
 
-      #path:
-      #serviceId:
+    #path:
+    #serviceId:
     ACV-VA: /ACV-VA/**
-    ACV-NA: /ACV-NA/**
+    atcc-serviceplatform-messageadapter: /atcc-serviceplatform-messageadapter/**
+    atcc-serviceplartform-b2badapter: /atcc-serviceplartform-b2badapter/**
 
-    api-a-url:
-      path: /api-a-url
-      url: http://localhost:8080/
+  api-a-url:
+    path: /api-a-url
+    url: http://localhost:8080/
   AccessFilter:
     pre:
       disable: false

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,6 +34,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement //如果mybatis中service实现类中加入事务注解，需要此处添加该注解
 @EnableAsync(proxyTargetClass = true)    //配置代理为cglib代理，默认使用 的是jdk动态代理
 @EnableEurekaClient
+@EnableDiscoveryClient
 public class Application {
 
     public static void main(String[] args) {

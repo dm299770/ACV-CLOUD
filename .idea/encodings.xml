@@ -5,9 +5,11 @@
     <file url="file://$PROJECT_DIR$/ACV-CA" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ACV-CA/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ACV-EUREKA" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ACV-NA" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ACV-UA" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ACV-VA" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/atcc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/atcc-serviceplartform-b2badapter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/atcc-serviceplatform-messageadapter" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

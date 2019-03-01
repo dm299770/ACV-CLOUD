@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ACV-UA.iml" filepath="$PROJECT_DIR$/ACV-UA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atcc.iml" filepath="$PROJECT_DIR$/atcc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atcc-serviceplartform-b2badapter.iml" filepath="$PROJECT_DIR$/atcc-serviceplartform-b2badapter.iml" />
+    </modules>
+  </component>
+</project>

@@ -87,12 +87,5 @@ public interface TsUserMapper {
      */
     UserInfo findEffctiveUserInfoById(@Param("id") String id);
 
-    /**
-     * 根据用户id查找手机号
-     *
-     * @param user_id
-     * @return
-     */
-    UserInfo findUserPhoneNum(@Param("userId") String user_id);
 
 }

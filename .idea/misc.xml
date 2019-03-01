@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ACV-NA/pom.xml" />
         <option value="$PROJECT_DIR$/ACV-VA/pom.xml" />
+        <option value="$PROJECT_DIR$/atcc-serviceplartform-b2badapter/pom.xml" />
+        <option value="$PROJECT_DIR$/atcc-serviceplatform-messageadapter/pom.xml" />
+        <option value="$PROJECT_DIR$/atcc/pom.xml" />
       </list>
     </option>
   </component>
