@@ -89,6 +89,16 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Spring Cloud Feign 依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
         <!--web应用基本环境配置 包含了spring web mvc/tomcat等web开发的特性 -->
         <!-- Spring Boot Web 依赖 -->
         <dependency>
@@ -145,16 +155,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.3</version>
-        </dependency>
-
-        <!-- Spring Cloud Feign 依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <!-- 部署关闭服务 -->

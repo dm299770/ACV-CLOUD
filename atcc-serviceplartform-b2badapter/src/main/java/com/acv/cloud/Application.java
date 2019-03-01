@@ -1,7 +1,5 @@
 package com.acv.cloud;
 
-import com.acv.cloud.frame.init.FastJsonHttpMessageConverterEx;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,8 +14,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -26,10 +22,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 按照官方的建议放在root目录下，这样才能扫描到Service和dao，不然还会引起，扫描不到注解的问题
@@ -42,8 +35,8 @@ import java.util.List;
 @EnableTransactionManagement //如果mybatis中service实现类中加入事务注解，需要此处添加该注解
 @EnableAsync(proxyTargetClass = true)    //配置代理为cglib代理，默认使用 的是jdk动态代理
 @EnableEurekaClient
-@EnableFeignClients
 @EnableDiscoveryClient
+@EnableFeignClients
 public class Application {
 
     public static void main(String[] args) {
@@ -85,5 +78,4 @@ public class Application {
         freeMarkerViewResolver.setRequestContextAttribute("request");
         return freeMarkerViewResolver;
     }
-
 }

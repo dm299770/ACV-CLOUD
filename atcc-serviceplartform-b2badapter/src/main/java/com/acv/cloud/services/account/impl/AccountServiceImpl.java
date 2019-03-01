@@ -2,10 +2,8 @@ package com.acv.cloud.services.account.impl;
 
 import com.acv.cloud.feign.VehicleStateFeign;
 import com.acv.cloud.models.jsonBean.account.TtChargeFlow;
-import com.acv.cloud.models.jsonBean.vehicle.request.EVVehicleState;
-import com.acv.cloud.models.jsonBean.vehicle.response.EVVehicleStateResponse;
 import com.acv.cloud.models.jsonBean.vehicle.request.VehicleStateRequestParameter;
-import com.alibaba.fastjson.JSON;
+import com.acv.cloud.models.jsonBean.vehicle.response.EVVehicleStateResponse;
 import com.alibaba.fastjson.JSONObject;
 import com.acv.cloud.dto.sys.UserInfo;
 import com.acv.cloud.frame.constants.AppResultConstants;
